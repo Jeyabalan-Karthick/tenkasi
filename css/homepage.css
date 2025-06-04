@@ -1,0 +1,43 @@
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+.hero-section {
+    height: 100vh;
+    background: url('../img/homepage-bg.png') no-repeat center center/cover;
+    position: relative;
+    color: black;
+    display: flex;
+    align-items: flex-start; /* Align content to the top */
+    justify-content: flex-start; /* Align content to the left */
+    padding: 50px; /* Adjust padding as needed */
+}
+
+.container {
+    max-width: none; /* Remove width restriction */
+    background: none; /* Remove background */
+    padding: 0;
+    text-align: left; /* Align text to the left */
+}
+
+h1, p {
+    margin: 0;
+    text-align: left; /* Ensure text is left-aligned */
+}
+
+.temple-image {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 40%;
+}
+
+.scroll-down {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    cursor: pointer;
+}

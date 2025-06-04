@@ -1,0 +1,63 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #fff;
+}
+
+.industrial-profile {
+    display: flex;
+    align-items: center;
+    border-left: 4px solid #0057b3;
+    border-right: 4px solid #0057b3;
+    padding: 20px;
+    max-width: 900px;
+    background: white;
+}
+
+.content {
+    flex: 1;
+}
+
+h2 {
+    color: #0057b3;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+h2 span {
+    display: block;
+}
+
+p {
+    font-size: 14px;
+    color: #444;
+    max-width: 400px;
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+}
+
+.circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #0057b3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #0057b3;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.circle:hover {
+    background-color: #0057b3;
+    color: white;
+}

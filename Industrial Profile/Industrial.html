@@ -1,0 +1,1130 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tenkasi District Industrial Potential</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.0/axios.min.js"></script>
+<style>
+   .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            color: #af6f24 !important;
+        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Crimson Text', serif;
+    }
+    
+    body {
+      background-color: #f9f9f9;
+    }
+
+    body.scrolled {
+      padding-top: 90px;
+    }
+
+    /* Banner Styles */
+    .banner-container {
+      position: relative;
+      width: 100%;
+      height: 500px;
+      overflow: hidden;
+      margin-bottom: 30px;
+    }
+    
+    .banner-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .incentives-link {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 10px 15px;
+      border-radius: 8px;
+      font-weight: 600;
+      color: #b1783b;
+      text-decoration: none;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .incentives-link:hover {
+      background-color: #b1783b;
+      color: white;
+    }
+    
+    /* Main Content Styles */
+    .main-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 16px;
+    }
+    
+    h1 {
+      color: #B58042;
+      margin-bottom: 15px;
+      font-size: 26px;
+    }
+    
+    .description {
+      color: #000000;
+      font-size: 20px;
+      line-height: 1.5;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    
+    .tab-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+    
+    .tab {
+      padding: 12px 24px;
+      border-radius: 20px;
+      margin: 5px;
+      cursor: pointer;
+      font-size: 14px;
+      border: none;
+      box-shadow: 0 2px 4px rgba(13, 11, 11, 0.1);
+      transition: all 0.3s ease;
+      background-color: #ffffff;
+      color: #B58042;
+    }
+    
+    .tab.active {
+      background-color: #B58042;
+      color: white;
+    }
+    
+    .content-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 35px;
+      margin: 0 auto;
+      max-width: 1200px;
+    }
+    
+    .card {
+      background-color: white;
+      border-radius: 15px;
+      padding: 25px;
+      min-width: 290px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      border: 1px solid #ffd88a;
+      margin: 10px;
+      position: relative;
+    }
+    
+    .card::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 5px;
+      right: 5px;
+      height: 5px;
+      background: linear-gradient(to right, #ffc14d, #ffd88a);
+      border-bottom-left-radius: 15px;
+      border-bottom-right-radius: 15px;
+    }
+    
+    .card h3 {
+      margin-bottom: 30px;
+      font-size: 20px;
+      color: #333;
+      font-weight: 600;
+    }
+    
+    .stats {
+      display: flex;
+      justify-content: space-around;
+    }
+    
+    .stat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0 20px;
+    }
+    
+    .circle {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: #f2d5a9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 15px;
+    }
+    
+    .circle img {
+      width: 30px;
+      height: 30px;
+    }
+    
+    .stat-label {
+      font-size: 18px;
+      color: #333;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    
+    .stat-value {
+      font-weight: bold;
+      font-size: 20px;
+      color: #333;
+    }
+    
+    /* Block Activities Section */
+    .block-activities-section {
+      margin-top: 20px;
+      margin-bottom: 40px;
+    }
+    
+    .block-activities-title {
+      text-align: center;
+      color: #000000;
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 40px;
+      line-height: 1.4;
+    }
+    
+    .block-activities-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 20px;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .block-card {
+      background-color: white;
+      border: 2px solid #ffd88a;
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 180px;
+      height: 100%;
+    }
+    
+    .block-card::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 5px;
+      right: 5px;
+      height: 5px;
+      background: linear-gradient(to right, #ffc14d, #ffd88a);
+      border-bottom-left-radius: 15px;
+      border-bottom-right-radius: 15px;
+    }
+    
+    .block-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+    
+    .block-name {
+      color: #B58042;
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    
+    .block-activities {
+      color: #333;
+      font-size: 16px;
+      line-height: 1.6;
+      text-align: center;
+      margin: 0;
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    /* Footer Styles */
+    footer {
+      background-color: #b1783b;
+      color: white;
+      padding: 20px 0;
+    }
+    
+    /* Content display */
+    .content {
+      display: none;
+    }
+    
+    .content.active {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    /* Responsive design */
+    @media (max-width: 1200px) {
+      .block-activities-grid {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        max-width: 900px;
+      }
+      
+      .block-card:nth-child(10) {
+        grid-column: 2;
+      }
+    }
+    
+    @media (max-width: 991px) {
+      .navbar {
+        padding: 0.5rem 1rem;
+      }
+      
+      .navbar-collapse {
+        margin-top: 1rem;
+      }
+      
+      .nav-item {
+        text-align: center;
+        margin: 0.5rem 0;
+      }
+      
+      .nav-link {
+        margin: 0;
+      }
+      
+      .block-activities-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+        gap: 18px;
+        max-width: 600px;
+      }
+      
+      .block-activities-title {
+        font-size: 22px;
+        margin-bottom: 35px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .navbar {
+        border-radius: 2;
+      }
+      
+      .content-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+      }
+      
+      .card {
+        width: 90%;
+        max-width: 350px;
+      }
+      
+      .stat {
+        margin: 0 10px;
+      }
+      
+      .tab-container {
+        flex-wrap: wrap;
+      }
+      
+      .tab {
+        margin-bottom: 10px;
+      }
+      
+      .banner-container {
+        height: 400px;
+      }
+      
+      .block-activities-section {
+        margin-top: 50px;
+        margin-bottom: 30px;
+      }
+      
+      .block-activities-grid {
+        gap: 15px;
+        padding: 0 10px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+      }
+      
+      .block-card {
+        padding: 20px;
+        min-width: auto;
+        min-height: 160px;
+      }
+      
+      .block-activities-title {
+        font-size: 20px;
+        margin-bottom: 30px;
+        padding: 0 15px;
+      }
+      
+      .block-name {
+        font-size: 18px;
+      }
+      
+      .block-activities {
+        font-size: 15px;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      h1 {
+        font-size: 22px;
+      }
+      
+      .description {
+        font-size: 16px;
+      }
+      
+      .tab {
+        padding: 10px 18px;
+        font-size: 12px;
+      }
+      
+      .banner-container {
+        height: 250px;
+      }
+      
+      .incentives-link {
+        font-size: 0.8rem;
+        padding: 6px 10px;
+        bottom: 10px;
+        right: 10px;
+      }
+      
+      .block-activities-section {
+        margin-top: 40px;
+        margin-bottom: 25px;
+      }
+      
+      .block-activities-title {
+        font-size: 18px;
+        margin-bottom: 25px;
+        padding: 0 10px;
+      }
+      
+      .block-card {
+        padding: 18px;
+        margin: 0 5px;
+        min-height: 140px;
+      }
+      
+      .block-name {
+        font-size: 17px;
+        margin-bottom: 12px;
+      }
+      
+      .block-activities {
+        font-size: 14px;
+        line-height: 1.5;
+      }
+    }
+    
+    @media (max-width: 320px) {
+      .block-activities-title {
+        font-size: 16px;
+        margin-bottom: 20px;
+        padding: 0 8px;
+      }
+      
+      .block-card {
+        padding: 15px;
+        margin: 0 3px;
+        min-height: 120px;
+      }
+      
+      .block-name {
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+      
+      .block-activities {
+        font-size: 13px;
+        line-height: 1.4;
+      }
+      
+      .block-activities-grid {
+        gap: 12px;
+        padding: 0 5px;
+      }
+    }
+
+    /* Navbar Styles */
+    .navbar {
+      border-radius: 40px;
+      padding: 0.75rem 1.5rem;
+      background-color: white;
+      width: 100%;
+      max-width: 1320px;
+      margin: 0 auto;
+      transition: all 0.3s ease;
+    }
+    
+    .navbar.fixed-top {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1030;
+      max-width: 100%;
+      border-radius: 0;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-brand img {
+      width: 50px;
+      height: auto;
+    }
+
+    .nav-link {
+      position: relative;
+      font-weight: 600;
+      color: black !important;
+      margin: 0 10px;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link:hover {
+      opacity: 0.8;
+    }
+
+    .nav-link.active::after {
+      content: "";
+      position: absolute;
+      bottom: 4px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: black;
+    }
+    
+    /* Custom hamburger to X icon */
+    .navbar-toggler {
+      border: none;
+      background: transparent;
+      padding: 0;
+    }
+    
+    .navbar-toggler:focus {
+      box-shadow: none;
+    }
+    
+    .navbar-toggler .navbar-toggler-icon {
+      background-image: none;
+      position: relative;
+      height: 24px;
+      width: 30px;
+      transition: all 0.3s ease;
+    }
+    
+    .navbar-toggler .navbar-toggler-icon:before,
+    .navbar-toggler .navbar-toggler-icon:after,
+    .navbar-toggler .navbar-toggler-icon .middle-bar {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 3px;
+      background-color: #333;
+      border-radius: 2px;
+      left: 0;
+      transition: all 0.3s ease;
+    }
+    
+    .navbar-toggler .navbar-toggler-icon:before {
+      top: 0;
+    }
+    
+    .navbar-toggler .navbar-toggler-icon .middle-bar {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    
+    .navbar-toggler .navbar-toggler-icon:after {
+      bottom: 0;
+    }
+    
+    .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:before {
+      transform: rotate(45deg);
+      top: 11px;
+    }
+    
+    .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon .middle-bar {
+      opacity: 0;
+    }
+    
+    .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:after {
+      transform: rotate(-45deg);
+      bottom: 10px;
+    }
+</style>
+</head>
+<body>
+  <!-- Banner Image Section with overlay navbar -->
+  <div class="position-relative">
+    <div class="container position-absolute top-0 start-50 translate-middle-x" style="z-index: 1030; padding-top: 15px; margin-top:16px;">
+      <nav class="navbar navbar-expand-lg shadow" id="mainNav">
+        <a class="navbar-brand" href="../LandingPage/LandingPage.html">
+          <img src="../img/diclogo.jpg" alt="Logo" />
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon">
+            <span class="middle-bar"></span>
+          </span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="../LandingPage/LandingPage.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="../About US/aboutus.html">About Us</a></li>
+            <li class="nav-item"><a class="nav-link active" href="../Industrial Profile/Industrial.html">Industrial Profile</a></li>
+            <li class="nav-item"><a class="nav-link" href="../Incentive Page/Incentives.html">Incentives</a></li>
+            <li class="nav-item"><a class="nav-link " href="../Schemes/Schemes.html">Schemes</a></li>
+            <li class="nav-item"><a class="nav-link" href="../Contact Page/Contactus.html">Contact Us</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    
+    <div class="banner-container">
+      <img src="../img/INCENTIVE.png" alt="Schemes Banner" class="banner-image">
+      <a href="https://msmeonline.tn.gov.in" class="incentives-link">For all Loan and Incentives: msmeonline.tn.gov.in</a>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <div class="header">
+      <h1>Tenkasi District Industrial Potential</h1>
+      <p class="description">
+        Tenkasi District is predominantly agriculture in nature and is emerging gradually and steadily as an 
+        industrially developed District. It is mainly known for its agro-based, Coir, Saw mill, Milk Processing 
+        units, Hotels, Resorts, Bricks and Hollow blocks manufacturing, Spa center, and textiles enterprises. 
+        The major industrial activities are as follows:
+      </p>
+
+      <h2>Number of Products Per Unit and Employment</h2>
+    </div>
+
+    <div class="tab-container">
+      <button class="tab active" onclick="showContent('textiles')" style="font-weight: 600; padding: 15px 30px; font-size: 16px;">Textiles</button>
+      <button class="tab" onclick="showContent('agro')" style="font-weight: 600; padding: 15px 30px; font-size: 16px;">Agro / Food Processing</button>
+      <button class="tab" onclick="showContent('category')" style="font-weight: 600; padding: 15px 30px; font-size: 16px;">Category</button>
+    </div>
+
+    <div class="content-container">
+      <!-- Textiles Content -->
+      <div id="textiles-content" class="content active">
+        <div class="card">
+          <h3>Powerlooms &amp; Autolooms</h3>
+          <div class="stats">
+            <div class="stat">
+              <div class="circle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#965A00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                </svg>
+              </div>
+              <span class="stat-label">Register Units</span>
+              <span class="stat-value">120</span>
+            </div>
+            <div class="stat">
+              <div class="circle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#965A00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+              </div>
+              <span class="stat-label">Employee</span>
+              <span class="stat-value">1800</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="card">
+          <h3>Readymade Garments</h3>
+          <div class="stats">
+            <div class="stat">
+              <div class="circle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#965A00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                </svg>
+              </div>
+              <span class="stat-label">Register Units</span>
+              <span class="stat-value">950</span>
+            </div>
+            <div class="stat">
+              <div class="circle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#965A00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+              </div>
+              <span class="stat-label">Employee</span>
+              <span class="stat-value">41,225</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Agro Content -->
+      <div id="agro-content" class="content">
+        <div class="card">
+          <h3>Rice Mills</h3>
+          <div class="stats">
+            <div class="stat">
+              <div class="circle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#965A00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                </svg>
+              </div>
+              <span class="stat-label">Register Units</span>
+              <span class="stat-value">357</span>
+            </div>
+            <div class="stat">
+              <div class="circle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#965A00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+              </div>
+              <span class="stat-label">Employee</span>
+              <span class="stat-value">10710</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="card">
+          <h3>Food, Milk processing unit, and Beverage</h3>
+          <div class="stats">
+            <div class="stat">
+              <div class="circle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#965A00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                </svg>
+              </div>
+              <span class="stat-label">Register Units</span>
+              <span class="stat-value">242</span>
+            </div>
+            <div class="stat">
+              <div class="circle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#965A00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+              </div>
+              <span class="stat-label">Employee</span>
+              <span class="stat-value">4840</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Packaged Drinking water</h3>
+          <div class="stats">
+            <div class="stat">
+              <div class="circle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#965A00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                </svg>
+              </div>
+              <span class="stat-label">Register Units</span>
+              <span class="stat-value">36</span>
+            </div>
+            <div class="stat">
+              <div class="circle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#965A00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+              </div>
+              <span class="stat-label">Employee</span>
+              <span class="stat-value">1285</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Category Content -->
+      <div id="category-content" class="content">
+        <div class="card">
+          <h3>Saw mill & Timber</h3>
+          <div class="stats">
+            <div class="stat">
+              <div class="circle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#965A00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                </svg>
+              </div>
+              <span class="stat-label">Register Units</span>
+              <span class="stat-value">135</span>
+            </div>
+
+            <div class="stat">
+              <div class="circle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#965A00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+              </div>
+              <span class="stat-label">Employee</span>
+              <span class="stat-value">3300</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="card">
+          <h3>Cem Powder & Dolomite Powder</h3>
+          <div class="stats">
+            <div class="stat">
+              <div class="circle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#965A00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                </svg>
+              </div>
+              <span class="stat-label">Register Units</span>
+              <span class="stat-value">60</span>
+            </div>
+            <div class="stat">
+              <div class="circle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#965A00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+              </div>
+              <span class="stat-label">Employee</span>
+              <span class="stat-value">1980</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Bricks & Hollow Block</h3>
+          <div class="stats">
+            <div class="stat">
+              <div class="circle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#965A00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                </svg>
+              </div>
+              <span class="stat-label">Register Units</span>
+              <span class="stat-value">210</span>
+            </div>
+            <div class="stat">
+              <div class="circle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#965A00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+              </div>
+              <span class="stat-label">Employee</span>
+              <span class="stat-value">7350</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- Block-wise Activities Section -->
+    <div class="block-activities-section">
+      <h2 class="block-activities-title">Block-wise prominent activities in the Tenkasi district are listed below.</h2>
+      
+      <div class="block-activities-grid">
+        <div class="block-card">
+          <h3 class="block-name">Alangulam</h3>
+          <p class="block-activities">Rice mill, Non-metallic mineral products, Textiles, Edible oil</p>
+        </div>
+        
+        <div class="block-card">
+          <h3 class="block-name">Kadayam</h3>
+          <p class="block-activities">Food and beverages, Non-metallic mineral products</p>
+        </div>
+        
+        <div class="block-card">
+          <h3 class="block-name">Kadayanallur</h3>
+          <p class="block-activities">Food and beverages, Textiles, Coir products</p>
+        </div>
+        
+        <div class="block-card">
+          <h3 class="block-name">Keelapavur</h3>
+          <p class="block-activities">Food and beverages, Non-metallic mineral products, Wood products, Textiles, Milk processing unit</p>
+        </div>
+        
+        <div class="block-card">
+          <h3 class="block-name">Kuruvikulam</h3>
+          <p class="block-activities">Food and beverages, Textiles, Match works</p>
+        </div>
+        
+        <div class="block-card">
+          <h3 class="block-name">Melaneelithanallur</h3>
+          <p class="block-activities">Wood products, Match works</p>
+        </div>
+        
+        <div class="block-card">
+          <h3 class="block-name">Sankarankovil</h3>
+          <p class="block-activities">Food and beverages, Non-metallic mineral products, Basic metal and its products, Machineries, Leather products, Rubber & Plastic products, Textiles</p>
+        </div>
+        
+        <div class="block-card">
+          <h3 class="block-name">Shenkottai</h3>
+          <p class="block-activities">Wood products, Hotels, Coir products, Saw mill</p>
+        </div>
+        
+        <div class="block-card">
+          <h3 class="block-name">Tenkasi</h3>
+          <p class="block-activities">Food and beverages, Wood products, Textiles, Coir products, Hotels, Resorts, Spa centers</p>
+        </div>
+        
+        <div class="block-card">
+          <h3 class="block-name">Vasudevanallur</h3>
+          <p class="block-activities">Food and beverages, Non-metallic mineral products, Textiles, Sugarcane</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Footer -->
+  <footer class="py-4 mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-4 mb-md-0">
+          <div class="d-flex align-items-center mb-3">
+            <img src="../img/diclogo.jpg" alt="DIC Logo" style="width: 80px; height: 80px;" class="me-3">
+          </div>
+          <p class="text-white" style="font-size: 16px;">
+            District Industries Centre, Tenkasi supports local entrepreneurs by providing guidance and assistance for starting and growing businesses.
+          </p>
+        </div>
+        <div class="col-md-4 mb-4 mb-md-0">
+          <h5 class="text-white mb-3">Useful Links</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="../LandingPage/LandingPage.html" class="text-white text-decoration-none">Home</a></li>
+            <li class="mb-2"><a href="../About US/aboutus.html" class="text-white text-decoration-none">About Us</a></li>
+            <li class="mb-2"><a href="../Industrial Profile/Industrial.html" class="text-white text-decoration-none">Industrial Profile</a></li>
+            <li class="mb-2"><a href="../Incentive Page/Incentives.html" class="text-white text-decoration-none">Incentives</a></li>
+            <li class="mb-2"><a href="../Schemes/Schemes.html" class="text-white text-decoration-none">Schemes</a></li>
+            <li class="mb-2"><a href="../Contact Page/Contactus.html" class="text-white text-decoration-none">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 mb-4 mb-md-0">
+          <h5 class="text-white mb-3">Address</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2 text-white d-flex align-items-start">
+              <i class="fas fa-map-marker-alt text-white me-2 mt-1"></i>
+              <div>
+                <span>Tmt.P.MARIAMMAL , General Manager</span><br>
+                <span>District Industries Centre</span><br>
+                <span>5/5(2),5(3), Thirumalar Kovil Road</span><br>
+                <span>Kuthukkakvalasai, Thenkasi-627803</span>
+              </div>
+            </li>
+            <li class="mb-2 text-white d-flex align-items-center">
+              <i class="fas fa-phone-alt text-white me-2 mt-1"></i>
+              <a href="tel:04633-212347" class="text-white text-decoration-none">04633-212347</a>
+            </li>
+            <li class="mb-2 text-white d-flex align-items-start">
+              <i class="fas fa-clock text-white me-2 mt-1"></i>
+              <div>
+                <span>Working Hours:</span><br>
+                <span>Monday - Friday: 10.00 AM to 5.45 PM</span>
+              </div>
+            </li>
+          </ul>
+      </div>
+<div class="row mt-4">
+    <div class="col-12 text-center">
+      <p class="text-white mb-0" style="font-size: 14px;">Copyright © 2025 Tenaksi DIC Made with ❤ by <a href="https://www.brandmindz.com/" target="_blank" style="color: white; text-decoration: none;">Brand Mindz</a>. All rights reserved.</p>    </div>
+</div>
+</div>
+
+</footer>
+<script>
+const counters = document.querySelectorAll('.count');
+counters.forEach(counter => {
+const updateCount = () => {
+const target = +counter.getAttribute('data-target');
+const isDecimal = counter.getAttribute('data-target').includes(".");
+const count = +counter.innerText;
+const speed = 100;
+const increment = target / speed;
+
+if (count < target) {
+  counter.innerText = isDecimal
+    ? (count + increment).toFixed(2)
+    : Math.ceil(count + increment);
+  setTimeout(updateCount, 20);
+} else {
+  counter.innerText = isDecimal ? target.toFixed(2) : target.toLocaleString();
+}
+};
+updateCount();
+});
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Fixed navbar on scroll
+window.addEventListener('scroll', function() {
+  const navbar = document.getElementById('mainNav');
+  const body = document.body;
+  const navbarContainer = navbar.parentElement;
+  
+  if (window.scrollY > 100) {
+    // When scrolled, make navbar fixed at top
+    navbar.classList.add('fixed-top');
+    navbar.classList.remove('position-relative');
+    body.classList.add('scrolled');
+    
+    // Remove the container's positioning to allow navbar to be full width
+    navbarContainer.classList.remove('position-absolute', 'top-0', 'start-50', 'translate-middle-x');
+    navbarContainer.style.width = '100%';
+    navbarContainer.style.maxWidth = '100%';
+    navbarContainer.style.padding = '0';
+  } else {
+    // Reset to original state when at top
+    navbar.classList.remove('fixed-top');
+    navbar.classList.add('position-relative');
+    body.classList.remove('scrolled');
+    
+    // Restore the container's positioning
+    navbarContainer.classList.add('position-absolute', 'top-0', 'start-50', 'translate-middle-x');
+    navbarContainer.style.width = '';
+    navbarContainer.style.maxWidth = '';
+    navbarContainer.style.padding = '';
+  }
+});
+
+// Get all navigation links
+const navLinks = document.querySelectorAll('.nav-link');
+
+// Get the collapse element
+const navbarCollapse = document.getElementById('navbarNav');
+const bsCollapse = new bootstrap.Collapse(navbarCollapse, {toggle: false});
+
+// Add click event listener to each navigation link
+navLinks.forEach(function(navLink) {
+  navLink.addEventListener('click', function() {
+    // Close the navbar when a link is clicked
+    if (navbarCollapse.classList.contains('show')) {
+      bsCollapse.hide();
+    }
+  });
+});
+
+// Close navbar when clicking outside
+document.addEventListener('click', function(event) {
+  // Check if the navbar is expanded and the click is outside the navbar
+  const isNavbarExpanded = navbarCollapse.classList.contains('show');
+  const isClickInsideNavbar = navbarCollapse.contains(event.target);
+  const isClickOnToggler = event.target.classList.contains('navbar-toggler') || 
+                          event.target.classList.contains('navbar-toggler-icon');
+  
+  if (isNavbarExpanded && !isClickInsideNavbar && !isClickOnToggler) {
+    bsCollapse.hide();
+  }
+});
+});
+</script>
+<script>
+  // Function to handle tab changes and content display
+  function showContent(contentType) {
+    // Reset all tabs and content
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.classList.remove('active');
+    });
+    
+    document.querySelectorAll('.content').forEach(content => {
+      content.classList.remove('active');
+    });
+    
+    // Activate selected tab and content
+    const selectedTab = document.querySelector(`.tab:nth-child(${contentType === 'textiles' ? 1 : contentType === 'agro' ? 2 : 3})`);
+    selectedTab.classList.add('active');
+    
+    const selectedContent = document.getElementById(`${contentType}-content`);
+    selectedContent.classList.add('active');
+    
+    // In a real application, this is where you might use Axios to fetch data
+    // Example:
+    // axios.get(`/api/data/${contentType}`)
+    //   .then(response => {
+    //     updateContentDisplay(response.data);
+    //   })
+    //   .catch(error => {
+    //     console.error('Error fetching data:', error);
+    //   });
+  }
+  
+  // Function to simulate data update with Axios (would be used in real application)
+  function fetchDataWithAxios(contentType) {
+    // This is just a demonstration of how you might use Axios
+    console.log(`Fetching ${contentType} data with Axios...`);
+    
+    // In a real application with an API endpoint:
+    // axios.get(`/api/industrialData/${contentType}`)
+    //   .then(response => {
+    //     console.log(response.data);
+    //     // Update the UI with the fetched data
+    //   })
+    //   .catch(error => {
+    //     console.error('Error fetching data:', error);
+    //   });
+  }
+</script>
+
+</body>
+</html>

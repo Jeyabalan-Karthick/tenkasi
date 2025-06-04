@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tenkasi District Industries Centre</title>
+    <!-- Meta redirect to the Tenkasi District page -->
+    <meta http-equiv="refresh" content="0; url=./About US/aboutus.html">
+    <style>
+        body {
+            font-family: 'Crimson Text', serif;
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        .loading {
+            color: #b1783b;
+            font-size: 1.5rem;
+        }
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(177, 120, 59, 0.3);
+            border-radius: 50%;
+            border-top-color: #b1783b;
+            animation: spin 1s ease-in-out infinite;
+            margin: 20px auto;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div class="spinner"></div>
+        <p class="loading">Loading Tenkasi District Industries Centre </p>
+        <p> <a href="../LandingPage/LandingPage.html">click here</a>.</p>
+    </div>
+
+    <script>
+        // JavaScript redirect as a fallback
+        window.location.href = "../LandingPage/LandingPage.html";
+    </script>
+</body>
+</html>

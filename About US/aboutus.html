@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tenkasi District</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Added Crimson Text font as requested -->
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+     .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            color: #af6f24 !important;
+        }
+     body {
+      font-family: 'Crimson Text', serif;
+      background: #fff;
+    }
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+    .map-img {
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+    }
+    .about-title {
+      color: #af6f24;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .glance-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .count {
+      font-size: 1.8rem;
+      font-weight: 600;
+    }
+    .count-label {
+      font-size: 1rem;
+      color: #555;
+    }
+
+    .connectivity-title, .admin-title {
+      color: #af6f24;
+      font-size: 1.8rem;
+      font-weight: 700;
+      text-align: center;
+      margin: 60px 0 30px;
+    }
+
+    .connect-card {
+      border: 1px solid #f5c78c;
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.05);
+      background-color: white;
+      height: 100%;
+      position: relative;
+    }
+  footer {
+            background-color: #b1783b;
+            color: white;
+            padding: 20px 0;
+        }
+    .connect-icon {
+      background-color: #f8981d;
+      color: white;
+      font-size: 1.2rem;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      position: absolute;
+      top: 15px;
+      right: 15px;
+    }
+
+    .plug-img {
+      max-width: 100px;
+      height: auto;
+    }
+
+    /* Admin block styles - updated for compact layout like in Image 1 */
+    .admin-blocks {
+      padding: 20px 0;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
+    .admin-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .admin-list li {
+    display: flex
+;
+    align-items: center;
+    margin-bottom: 23px;
+    font-size: 20PX;
+}
+    .admin-number {
+      background-color: #c6842f;
+      color: white;
+      font-weight: bold;
+      border-radius: 5px;
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .admin-image {
+      width: 76%;
+      border-top-right-radius: 129px;
+      height: auto;
+      max-height: 400px;
+      object-fit: fill;
+    }
+
+    /* Enhanced responsive design */
+    @media (max-width: 991px) {
+      .count {
+        font-size: 1.5rem;
+      }
+      .count-label {
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .connect-card {
+        margin-bottom: 20px;
+      }
+      .admin-blocks .row > div {
+        margin-bottom: 30px;
+      }
+      .admin-number {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+      }
+      .connectivity-title, .admin-title {
+        font-size: 1.5rem;
+        margin: 40px 0 20px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .about-title {
+        font-size: 1.3rem;
+      }
+      .glance-title {
+        font-size: 1.1rem;
+      }
+      .count {
+        font-size: 1.3rem;
+      }
+      .count-label {
+        font-size: 0.8rem;
+      }
+      .admin-number {
+        width: 30px;
+        height: 30px;
+      }
+      .admin-list li {
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+      }
+    }
+
+     /* Banner Styles */
+     .banner-container {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    margin-bottom: 30px;
+
+
+    }
+    
+    .banner-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .incentives-link {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 10px 15px;
+      border-radius: 8px;
+      font-weight: 600;
+      color: #b1783b;
+      text-decoration: none;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .incentives-link:hover {
+      background-color: #b1783b;
+      color: white;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 767px) {
+      .section-title {
+        font-size: 1.4rem;
+      }
+      .icon-box {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+      }
+      .icon-box i {
+        margin-bottom: 10px;
+      }
+      .form-section {
+        padding: 20px;
+      }
+      .contact-card {
+        min-height: auto;
+      }
+      .banner-container {
+        height: 500px;
+      }
+      .incentives-link {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+      }
+    }
+    
+    @media (max-width: 575px) {
+      .section-title {
+        font-size: 1.2rem;
+      }
+      .icon-box {
+        margin-bottom: 1rem;
+      }
+      .form-section {
+        padding: 15px;
+      }
+      .email-break {
+        word-break: break-all;
+      }
+      .banner-container {
+        height: 250px;
+      }
+      .incentives-link {
+        font-size: 0.8rem;
+        padding: 6px 10px;
+        bottom: 10px;
+        right: 10px;
+      }
+    }
+    body.scrolled {
+      padding-top: 90px; /* Add padding when navbar is fixed */
+    }
+/* Navbar Styles */
+.navbar {
+      border-radius: 40px;
+      padding: 0.75rem 1.5rem;
+      background-color: white;
+      width: 100%;
+      max-width: 1320px;
+      margin: 0 auto;
+      transition: all 0.3s ease;
+    }
+    
+    .navbar.fixed-top {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1030;
+      max-width: 100%;
+      border-radius: 0;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-brand img {
+      width: 50px;
+      height: auto;
+    }
+
+    .nav-link {
+      position: relative;
+      font-weight: 600;
+      color: black !important;
+      margin: 0 10px;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link:hover {
+      opacity: 0.8;
+    }
+
+    .nav-link.active::after {
+      content: "";
+      position: absolute;
+      bottom: 4px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: black;
+    }
+    
+    /* Custom hamburger to X icon */
+    .navbar-toggler {
+      border: none;
+      background: transparent;
+      padding: 0;
+    }
+    
+    .navbar-toggler:focus {
+      box-shadow: none;
+    }
+    
+    .navbar-toggler .navbar-toggler-icon {
+      background-image: none;
+      position: relative;
+      height: 24px;
+      width: 30px;
+      transition: all 0.3s ease;
+    }
+    
+    .navbar-toggler .navbar-toggler-icon:before,
+    .navbar-toggler .navbar-toggler-icon:after,
+    .navbar-toggler .navbar-toggler-icon .middle-bar {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 3px;
+      background-color: #333;
+      border-radius: 2px;
+      left: 0;
+      transition: all 0.3s ease;
+    }
+    
+    .navbar-toggler .navbar-toggler-icon:before {
+      top: 0;
+    }
+    
+    .navbar-toggler .navbar-toggler-icon .middle-bar {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    
+    .navbar-toggler .navbar-toggler-icon:after {
+      bottom: 0;
+    }
+    
+    .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:before {
+      transform: rotate(45deg);
+      top: 11px;
+    }
+    
+    .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon .middle-bar {
+      opacity: 0;
+    }
+    
+    .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:after {
+      transform: rotate(-45deg);
+      bottom: 10px;
+    }
+
+  </style>
+</head>
+<body>
+
+    <!-- Banner Image Section with overlay navbar -->
+  <div class="position-relative">
+    <div class="container position-absolute top-0 start-50 translate-middle-x" style="z-index: 1030; padding-top: 15px; margin-top:16px;">
+      <nav class="navbar navbar-expand-lg shadow" id="mainNav">
+        <a class="navbar-brand" href="../LandingPage/LandingPage.html">
+            <img src="../img/diclogo.jpg" alt="Logo" />
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon">
+            <span class="middle-bar"></span>
+          </span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="../LandingPage/LandingPage.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link active" href="../About US/aboutus.html">About Us</a></li>
+            <li class="nav-item"><a class="nav-link" href="../Industrial Profile/Industrial.html">Industrial Profile</a></li>
+            <li class="nav-item"><a class="nav-link" href="../Incentive Page/Incentives.html">Incentives</a></li>
+            <li class="nav-item"><a class="nav-link " href="../Schemes/Schemes.html">Schemes</a></li>
+            <li class="nav-item"><a class="nav-link" href="../Contact Page/Contactus.html">Contact Us</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    
+    <div class="banner-container">
+      <img src="../img/INCENTIVE.png" alt="Schemes Banner" class="banner-image">
+      <a href="https://msmeonline.tn.gov.in" class="incentives-link">For all Loan and Incentives: msmeonline.tn.gov.in</a>
+    </div>
+  </div>
+
+<div class="container mt-4">
+  <!-- District Overview -->
+  <div class="row align-items-center">
+    <div class="col-md-5 text-center mb-4">
+      <img src="../img/tenkasimap.png" alt="Tenkasi Map" class="map-img">
+    </div>
+    <div class="col-md-7">
+      <div class="glance-title">District at a Glance</div>
+      <div class="about-title">About District</div>
+      <p>
+        The new Tenkasi district was bifurcated from Tirunelveli in 2019. Tenkasi District is located in the south western region of Tamilnadu. It is surrounded by Tirunelveli district in the south east and Virudhunagar in the North. The total geographical area of the district is 2882.44sq.kms. It comprises of 8 Talukas 5 Municipalities, 18 Town panchayaths, 246 revenue villages, 221 village panchayaths.
+              </p>
+      <p>
+        The Chittar river flows through the district.  The famous Coutrallam Falls is on Chittar River. The waterfalls of Courtallam are said to have medicinal value as they run through forest and herbs before their descent. Courtallam is called as “Spa of South India”. Tamil poet ThirikoodaRasappaKavirayar sang about the beauty of this place in his “KutraalaKuravanji”.
+      </p>
+<p>
+  The Kutralanathaswamy temple is the location of ChitraSabha, one of the five abodes or Sabhas of Nataraja, a form of Lord Shiva. The temple has inscriptions dating back to the thirteenth century CE. Records show that VeeraPandyan, ParakramaPandyan and the Nayaks ruled the region.
+
+</p>
+
+      <div class="row text-center mt-4">
+        <div class="col-6 col-md-3 mb-3 mb-md-0">
+          <div class="count" data-target="2882.43">0</div>
+          <div class="count-label">Area Sq.km</div>
+        </div>
+        <div class="col-6 col-md-3 mb-3 mb-md-0">
+          <div class="count" data-target="1440795">0</div>
+          <div class="count-label">Populations</div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="count" data-target="714215">0</div>
+          <div class="count-label">Male</div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="count" data-target="726580">0</div>
+          <div class="count-label">Female</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center mb-5">
+  
+    <div class="about-title mt-4">FORMATION OF DISTRICT INDUSTRIES CENTRE, TENKASI</div>
+    <p>
+      Tenkasi district was formed on 21.12.2019 vide G.O.(ms).No.476 dated 21.12.2019 of Revenue and Disaster Management Development, Revenue Administration wing [RAI(1)] section by bifurcating from Tirunelveli District. Tenkasi is it's headquartering which is the largest Municipality in the area of Tenkasi District.
+
+    </p>
+    <p>
+      
+      District Industries Centre, Tenkasi was formed vide G.O.Ms.No.7 MSME (F) Dept dated 29.01.2021 and has been functioning from 26.02.2021
+    </p>
+  </div>
+
+  <!-- Connectivity -->
+  <div class="connectivity-title">Connectivity To Reach</div>
+  <div class="row justify-content-between align-items-center">
+    <div class="col-md-1 text-center d-none d-md-block">
+      <img src="../img/left.jpg" alt="Plug Left" class="plug-img">
+    </div>
+    <div class="col-12 col-md-10">
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="connect-card">
+            <div class="connect-icon"><i class="fas fa-road"></i></div>
+            <h5>Roadways</h5>
+            <p>Tenkasi district has a well-connected road network with national and state highways.</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="connect-card">
+            <div class="connect-icon"><i class="fas fa-subway"></i></div>
+            <h5>Railways</h5>
+            <p>Tenkasi district has rail transport connectivity with several major cities through its railway stations.</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="connect-card">
+            <div class="connect-icon"><i class="fas fa-plane"></i></div>
+            <h5>Airways</h5>
+            <p>Tenkasi has airway support near Madurai, Thoothukudi and Trivandrum.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-1 text-center d-none d-md-block">
+      <img src="../img/right.jpg" alt="Plug Right" class="plug-img">
+    </div>
+  </div>
+
+  <!-- Administrative Blocks - Updated to match Image 1 layout -->
+  <div class="admin-title">Administrative Block of Tenkasi District</div>
+  <div class="admin-blocks">
+    <div class="row align-items-center">
+      <div class="col-lg-6 mb-4 mb-lg-0">
+        <img src="../img/Admin.png" class="admin-image" alt="Admin Building">
+      </div>
+      <div class="col-lg-6">
+        <div class="row">
+          <div class="col-md-6">
+            <ul class="admin-list" style="font-size: 1.2rem;">
+              <li><span class="admin-number">01</span> Alangulam</li>
+              <li><span class="admin-number">02</span> Kadayam</li>
+              <li><span class="admin-number">03</span> Kadayanallur</li>
+              <li><span class="admin-number">04</span> Keelapavoor</li>
+              <li><span class="admin-number">05</span> Kuruvikulam</li>
+            </ul>
+          </div>
+          <div class="col-md-6 mt-3 mt-md-0">
+            <ul class="admin-list" style="font-size: 1.2rem;">
+              <li><span class="admin-number">06</span> Melaneelithanallur</li>
+              <li><span class="admin-number">07</span> Sankarankovil</li>
+              <li><span class="admin-number">08</span> Shencottai</li>
+              <li><span class="admin-number">09</span> Tenkasi</li>
+              <li><span class="admin-number">10</span> Vasudevanallur</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<footer class="py-4">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-4 mb-4 mb-md-0">
+              <div class="d-flex align-items-center mb-3">
+                  <img src="../img/diclogo.jpg" alt="DIC Logo" style="width: 80px; height: 80px;" class="me-3">
+              </div>
+              <p class="text-white" style="font-size: 16px;">
+                  District Industries Centre, Tenkasi supports local entrepreneurs by providing guidance and assistance for starting and growing businesses.
+              </p>
+          </div>
+          <div class="col-md-4 mb-4 mb-md-0">
+              <h5 class="text-white mb-3">Useful Links</h5>
+              <ul class="list-unstyled">
+                <li class="mb-2"><a href="../LandingPage/LandingPage.html" class="text-white text-decoration-none">Home</a></li>
+                <li class="mb-2"><a href="../About US/aboutus.html" class="text-white text-decoration-none">About Us</a></li>
+                <li class="mb-2"><a href="../Industrial Profile/Industrial.html" class="text-white text-decoration-none">Industrial Profile</a></li>
+                <li class="mb-2"><a href="../Incentive Page/Incentives.html" class="text-white text-decoration-none">Incentives</a></li>
+                <li class="mb-2"><a href="../Schemes/Schemes.html" class="text-white text-decoration-none">Schemes</a></li>
+                <li class="mb-2"><a href="../Contact Page/Contactus.html" class="text-white text-decoration-none">Contact Us</a></li>
+              </ul>
+          </div>
+          <div class="col-md-4 mb-4 mb-md-0">
+            <h5 class="text-white mb-3">Address</h5>
+            <ul class="list-unstyled">
+              <li class="mb-2 text-white d-flex align-items-start">
+                <i class="fas fa-map-marker-alt text-white me-2 mt-1"></i>
+                <div>
+                  <span>Tmt.P.MARIAMMAL , General Manager</span><br>
+                  <span>District Industries Centre</span><br>
+                  <span>5/5(2),5(3), Thirumalar Kovil Road</span><br>
+                  <span>Kuthukkakvalasai, Thenkasi-627803</span>
+                </div>
+              </li>
+              <li class="mb-2 text-white d-flex align-items-center">
+                <i class="fas fa-phone-alt text-white me-2 mt-1"></i>
+                <a href="tel:04633-212347" class="text-white text-decoration-none">04633-212347</a>
+              </li>
+              <li class="mb-2 text-white d-flex align-items-start">
+                <i class="fas fa-clock text-white me-2 mt-1"></i>
+                <div>
+                  <span>Working Hours:</span><br>
+                  <span>Monday - Friday: 10.00 AM to 5.45 PM</span>
+                </div>
+              </li>
+            </ul>
+        </div>
+
+      <div class="row mt-4">
+          <div class="col-12 text-center">
+            <p class="text-white mb-0" style="font-size: 14px;">Copyright © 2025 Tenaksi DIC Made with ❤ by <a href="https://www.brandmindz.com/" target="_blank" style="color: white; text-decoration: none;">Brand Mindz</a>. All rights reserved.</p>          </div>
+      </div>
+  </div>
+</footer>
+<script>
+  const counters = document.querySelectorAll('.count');
+  counters.forEach(counter => {
+    const updateCount = () => {
+      const target = +counter.getAttribute('data-target');
+      const isDecimal = counter.getAttribute('data-target').includes(".");
+      const count = +counter.innerText;
+      const speed = 100;
+      const increment = target / speed;
+
+      if (count < target) {
+        counter.innerText = isDecimal
+          ? (count + increment).toFixed(2)
+          : Math.ceil(count + increment);
+        setTimeout(updateCount, 20);
+      } else {
+        counter.innerText = isDecimal ? target.toFixed(2) : target.toLocaleString();
+      }
+    };
+    updateCount();
+  });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Fixed navbar on scroll
+      window.addEventListener('scroll', function() {
+        const navbar = document.getElementById('mainNav');
+        const body = document.body;
+        const navbarContainer = navbar.parentElement;
+        
+        if (window.scrollY > 100) {
+          // When scrolled, make navbar fixed at top
+          navbar.classList.add('fixed-top');
+          navbar.classList.remove('position-relative');
+          body.classList.add('scrolled');
+          
+          // Remove the container's positioning to allow navbar to be full width
+          navbarContainer.classList.remove('position-absolute', 'top-0', 'start-50', 'translate-middle-x');
+          navbarContainer.style.width = '100%';
+          navbarContainer.style.maxWidth = '100%';
+          navbarContainer.style.padding = '0';
+        } else {
+          // Reset to original state when at top
+          navbar.classList.remove('fixed-top');
+          navbar.classList.add('position-relative');
+          body.classList.remove('scrolled');
+          
+          // Restore the container's positioning
+          navbarContainer.classList.add('position-absolute', 'top-0', 'start-50', 'translate-middle-x');
+          navbarContainer.style.width = '';
+          navbarContainer.style.maxWidth = '';
+          navbarContainer.style.padding = '';
+        }
+      });
+      
+      // Get all navigation links
+      const navLinks = document.querySelectorAll('.nav-link');
+      
+      // Get the collapse element
+      const navbarCollapse = document.getElementById('navbarNav');
+      const bsCollapse = new bootstrap.Collapse(navbarCollapse, {toggle: false});
+      
+      // Add click event listener to each navigation link
+      navLinks.forEach(function(navLink) {
+        navLink.addEventListener('click', function() {
+          // Close the navbar when a link is clicked
+          if (navbarCollapse.classList.contains('show')) {
+            bsCollapse.hide();
+          }
+        });
+      });
+      
+      // Close navbar when clicking outside
+      document.addEventListener('click', function(event) {
+        // Check if the navbar is expanded and the click is outside the navbar
+        const isNavbarExpanded = navbarCollapse.classList.contains('show');
+        const isClickInsideNavbar = navbarCollapse.contains(event.target);
+        const isClickOnToggler = event.target.classList.contains('navbar-toggler') || 
+                                event.target.classList.contains('navbar-toggler-icon');
+        
+        if (isNavbarExpanded && !isClickInsideNavbar && !isClickOnToggler) {
+          bsCollapse.hide();
+        }
+      });
+    });
+  </script>
+</body>
+</html>

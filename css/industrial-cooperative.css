@@ -1,0 +1,146 @@
+/* General Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Full Page Background */
+.main-containers {
+    background-color: #EBECE7;
+    min-height: 100vh;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Left-Aligned Text Section */
+.text-sections {
+    max-width: 600px;
+    margin-bottom: 30px;
+}
+
+.section-titles {
+    font-family: 'Crimson Text', serif;
+    font-size: 28px;
+    font-weight: bold;
+    color: #0044cc;
+    text-transform: uppercase;
+}
+
+.section-descriptions {
+    font-family: 'Crimson Text', serif;
+    font-size: 32px;
+    font-weight: 600;
+    max-width: 618px;
+    color: #333;
+    margin-bottom: 30px;
+}
+/* Card Section */
+.card-sections {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Card Alignment */
+.col-md-3:nth-child(1),
+.col-md-3:nth-child(3) {
+    transform: translateY(-20px);
+}
+
+.col-md-3:nth-child(2),
+.col-md-3:nth-child(4) {
+    transform: translateY(40px);
+}
+
+/* Card Container */
+.card-containers {
+    position: relative;
+    width: 100%;
+    max-width: 250px;
+    height: 400px;
+    margin: auto;
+}
+
+/* Image Container */
+.image-containers {
+    position: relative;
+    background: white;
+    border-radius: 0 0 80px 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    height: 250px;
+}
+
+.inner-images {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 0 0 60px 0;
+}
+
+.inner-images img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Content */
+.contents {
+    text-align: left;
+}
+
+.numbers{
+    color: #0044cc;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.titles {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.descriptions {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.4;
+    text-align: justify;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-containers {
+        padding: 20px;
+    }
+
+    .text-sections {
+        max-width: 100%;
+    }
+
+    .section-titles {
+        font-size: 24px;
+    }
+
+    .section-descriptions {
+        font-size: 18px;
+    }
+
+    .card-containers {
+        max-width: 300px;
+    }
+
+    /* Reset Transform on Small Screens */
+    .col-md-3:nth-child(1),
+    .col-md-3:nth-child(2),
+    .col-md-3:nth-child(3),
+    .col-md-3:nth-child(4) {
+        transform: none;
+    }
+}

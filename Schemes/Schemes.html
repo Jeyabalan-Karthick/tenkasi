@@ -1,0 +1,1932 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Government Schemes</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@600&display=swap" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            color: #af6f24 !important;
+        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Crimson Text', serif;
+      line-height: 1.5;
+      color: #333;
+      max-width: 100%;
+      overflow-x: hidden;
+      background-color: #ffffff;
+    }
+    
+    body.scrolled {
+      padding-top: 90px;
+    }
+    
+    /* Navbar Styles */
+    .navbar {
+      border-radius: 40px;
+      padding: 0.75rem 1.5rem;
+      background-color: white;
+      width: 100%;
+      max-width: 1320px;
+      margin: 0 auto;
+      transition: all 0.3s ease;
+    }
+    
+    .navbar.fixed-top {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1030;
+      max-width: 100%;
+      border-radius: 0;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-brand img {
+      width: 50px;
+      height: auto;
+    }
+
+    .nav-link {
+      position: relative;
+      font-weight: 600;
+      color: black !important;
+      margin: 0 10px;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link:hover {
+      opacity: 0.8;
+    }
+
+    .nav-link.active::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: black;
+    }
+    
+    /* Custom hamburger to X icon */
+    .navbar-toggler {
+      border: none;
+      background: transparent;
+      padding: 0;
+    }
+    
+    .navbar-toggler:focus {
+      box-shadow: none;
+    }
+    
+    .navbar-toggler .navbar-toggler-icon {
+      background-image: none;
+      position: relative;
+      height: 24px;
+      width: 30px;
+      transition: all 0.3s ease;
+    }
+    
+    .navbar-toggler .navbar-toggler-icon:before,
+    .navbar-toggler .navbar-toggler-icon:after,
+    .navbar-toggler .navbar-toggler-icon .middle-bar {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 3px;
+      background-color: #333;
+      border-radius: 2px;
+      left: 0;
+      transition: all 0.3s ease;
+    }
+    
+    .navbar-toggler .navbar-toggler-icon:before {
+      top: 0;
+    }
+    
+    .navbar-toggler .navbar-toggler-icon .middle-bar {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    
+    .navbar-toggler .navbar-toggler-icon:after {
+      bottom: 0;
+    }
+    
+    .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:before {
+      transform: rotate(45deg);
+      top: 11px;
+    }
+    
+    .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon .middle-bar {
+      opacity: 0;
+    }
+    
+    .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:after {
+      transform: rotate(-45deg);
+      bottom: 10px;
+    }
+    
+    /* Banner Styles */
+    .banner-container {
+      position: relative;
+      width: 100%;
+      height: 500px;
+      overflow: hidden;
+      margin-bottom: 30px;
+    }
+    
+    .banner-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .incentives-link {
+      position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-weight: 600;
+    color: #b1783b;
+    text-decoration: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+    
+    .incentives-link:hover {
+      background-color: #b1783b;
+      color: white;
+    }
+    
+    /* Main content styles */
+    .schemes-container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    .kalaignar-container {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding: 20px 10px;
+      margin-bottom: 30px;
+    }
+    
+    .image-wrapper {
+      flex: 0 0 auto;
+      width: 200px;
+    }
+    
+    .pottery-image {
+      width: 100%;
+      height: auto;
+      border-radius: 20px;
+      object-fit: cover;
+    }
+    
+    .content-wrapper {
+      background-color: #e1dad2;
+      flex: 1;
+      padding: 30px;
+      position: relative;
+      margin-top: 34px;
+      border-radius: 12px;
+    }
+    
+    .number-overlay {
+      font-family: "Crimson Text", serif;
+      font-size: 150px;
+      color: #b58042;
+      position: absolute;
+      top: -75px;
+      left: 8px;
+      opacity: 0.8;
+      line-height: 1;
+    }
+    
+    .title {
+      font-family: "Crimson Text", serif;
+      font-size: 24px;
+      color: #59544e;
+      margin-left: 50px;
+      margin-top: 10px;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .divider {
+      width: 100%;
+      height: 1px;
+      background-color: #c1bab2;
+      margin: 15px 0;
+      border: none;
+    }
+    
+    .description {
+      font-family: "Crimson Text", serif;
+      font-size: 16px;
+      color: #5b5b5b;
+      line-height: 1.5;
+      margin-top: 15px;
+    }
+    
+    .extra-content {
+      margin-top: 20px;
+      opacity: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    
+    .extra-content.show {
+      opacity: 1;
+      max-height: 500px;
+    }
+    
+    .extra-content h3 {
+      color: #333;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    
+    .extra-content ul {
+      padding-left: 20px;
+      margin-bottom: 15px;
+    }
+    
+    .extra-content li {
+      margin-bottom: 8px;
+    }
+    
+    .arrow-button {
+      position: absolute;
+      bottom: 15px;
+      right: 15px;
+      cursor: pointer;
+      z-index: 5;
+      transition: all 0.3s ease;
+    }
+    
+    .arrow-button:hover {
+      transform: scale(1.05);
+    }
+    
+    .circle-wrapper {
+      position: relative;
+      margin-bottom: -9px;
+    }
+    .circle-wrapper1 {
+      position: relative;
+      margin-bottom: -39px;
+    }
+    
+    .arrow-circle {
+      width: 40px;
+      height: 40px;
+      transition: all 0.3s ease;
+    }
+    
+    .arrow-button:hover .arrow-circle circle {
+      fill: #b58042;
+      stroke: #8b5a2b;
+    }
+    
+    .arrow-icon {
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      transition: transform 0.3s ease;
+      filter: brightness(0) saturate(100%) invert(40%) sepia(50%) saturate(500%) hue-rotate(20deg);
+    }
+    
+    .arrow-button:hover .arrow-icon {
+      transform: rotate(180deg);
+      filter: brightness(0) saturate(100%) invert(100%);
+    }
+    
+    .arrow-icon.rotate {
+      transform: rotate(180deg);
+    }
+    
+    .hidden {
+      display: none;
+    }
+    
+    /* Reverse layout for section 2 */
+    .kalaignar-container.reverse {
+      flex-direction: row-reverse;
+    }
+    
+    /* Section 2 white background */
+    .section-white .content-wrapper {
+      background-color: #ffffff;
+    }
+    
+    /* Move number overlay to right side for reverse layout */
+    .kalaignar-container.reverse .number-overlay {
+      left: auto;
+      right: 20px;
+    }
+    
+    .kalaignar-container.reverse .title {
+      text-align: right;
+      margin-right: 50px;
+      margin-left: 0;
+    }
+    
+    .kalaignar-container.reverse .description {
+      text-align: left;
+    }
+    
+    /* Footer Styles */
+    footer {
+      background-color: #b1783b;
+      color: white;
+      padding: 20px 0;
+      margin-top: 50px;
+    }
+  
+    /* Tablet Styles (768px to 1024px) */
+    @media (max-width: 1024px) {
+      .schemes-container {
+        padding: 15px;
+      }
+      
+      .kalaignar-container {
+        padding: 15px 0;
+      }
+      
+      .image-wrapper {
+        width: 180px;
+      }
+      
+      .content-wrapper {
+        padding: 25px;
+      }
+      
+      .number-overlay {
+        font-size: 120px;
+        top: -60px;
+      }
+      
+      .title {
+        font-size: 22px;
+      }
+      
+      .description {
+        font-size: 15px;
+      }
+    }
+    
+    /* Mobile Styles (up to 767px) */
+    @media (max-width: 767px) {
+      .schemes-container {
+        padding: 10px;
+      }
+      
+      .kalaignar-container {
+        flex-direction: column;
+        padding: 10px 0;
+      }
+      
+      .kalaignar-container.reverse {
+        flex-direction: column;
+      }
+      
+      .image-wrapper {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+      }
+      
+      .content-wrapper {
+        margin-top: 20px;
+        padding: 20px;
+        width: 100%;
+      }
+      
+      .number-overlay {
+        font-size: 100px;
+        top: -50px;
+        left: 5px;
+      }
+      
+      .kalaignar-container.reverse .number-overlay {
+        right: 5px;
+        left: auto;
+      }
+      
+      .title {
+        font-size: 20px;
+        margin-left: 30px;
+        margin-top: 5px;
+      }
+      
+      .kalaignar-container.reverse .title {
+        text-align: right;
+        margin-right: 30px;
+        margin-left: 0;
+      }
+      
+      .description {
+        font-size: 14px;
+      }
+      
+      .extra-content h3 {
+        font-size: 16px;
+      }
+      
+      .extra-content li {
+        font-size: 14px;
+      }
+      
+      .arrow-button {
+        bottom: 10px;
+        right: 10px;
+      }
+      
+      .arrow-circle {
+        width: 35px;
+        height: 35px;
+      }
+      
+      .arrow-icon {
+        width: 18px;
+        height: 18px;
+        left: 8px;
+        top: 8px;
+      }
+      
+      .banner-container {
+        height: 300px;
+      }
+    }
+    
+    /* Small Mobile Styles (up to 480px) */
+    @media (max-width: 480px) {
+      .schemes-container {
+        padding: 8px;
+      }
+      
+      .kalaignar-container {
+        padding: 8px 0;
+      }
+      
+      .content-wrapper {
+        padding: 15px;
+        margin-top: 15px;
+      }
+      
+      .number-overlay {
+        font-size: 80px;
+        top: -40px;
+      }
+      
+      .title {
+        font-size: 18px;
+        margin-left: 20px;
+      }
+      
+      .kalaignar-container.reverse .title {
+        margin-right: 20px;
+      }
+      
+      .description {
+        font-size: 13px;
+      }
+      
+      .extra-content h3 {
+        font-size: 15px;
+      }
+      
+      .extra-content li {
+        font-size: 13px;
+      }
+      
+      .arrow-circle {
+        width: 30px;
+        height: 30px;
+      }
+      
+      .arrow-icon {
+        width: 16px;
+        height: 16px;
+        left: 7px;
+        top: 7px;
+      }
+      
+      .banner-container {
+        height: 200px;
+      }
+    }
+
+    @media (max-width: 767px) {
+    .incentives-link {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+}
+    @media (max-width: 575px) {
+    .incentives-link {
+        font-size: 0.8rem;
+        padding: 6px 10px;
+        bottom: 10px;
+        right: 10px;
+    }
+}
+
+
+  </style>
+</head>
+<body>
+  <!-- Banner Image Section with overlay navbar -->
+  <div class="position-relative">
+    <div class="container position-absolute top-0 start-50 translate-middle-x" style="z-index: 1030; padding-top: 15px; margin-top:16px;">
+      <nav class="navbar navbar-expand-lg shadow" id="mainNav">
+        <a class="navbar-brand" href="../LandingPage/LandingPage.html">
+          <img src="../img/diclogo.jpg" alt="Logo"  />
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon">
+            <span class="middle-bar"></span>
+          </span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="../LandingPage/LandingPage.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="../About US/aboutus.html">About Us</a></li>
+            <li class="nav-item"><a class="nav-link" href="../Industrial Profile/Industrial.html">Industrial Profile</a></li>
+            <li class="nav-item"><a class="nav-link" href="../Incentive Page/Incentives.html">Incentives</a></li>
+            <li class="nav-item"><a class="nav-link active" href="../Schemes/Schemes.html">Schemes</a></li>
+            <li class="nav-item"><a class="nav-link" href="../Contact Page/Contactus.html">Contact Us</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    
+    <div class="banner-container">
+      <img src="../img/INCENTIVE.png" alt="Schemes Banner" class="banner-image">
+      <a href="https://msmeonline.tn.gov.in" class="incentives-link">For all Loan and Incentives: msmeonline.tn.gov.in</a>
+    </div>
+  </div>
+
+  <div class="schemes-container">
+    <section class="kalaignar-container">
+      <div class="image-wrapper">
+        <img src="../img/KALAI.jpg" alt="Pottery Image" class="pottery-image" />
+      </div>
+      <article class="content-wrapper">
+        <span class="number-overlay">1</span>
+        <h1 class="title"><a href="https://msmeonline.tn.gov.in/kkt/index.php" style="text-decoration: none; color: inherit;">Kalaignar Kaivinai Thittam</a></h1>
+        <hr class="divider" />
+        <p class="description">
+          Kalaignar Kaivinai Thittam empowers skilled artisans by providing
+          financial support to sustain and expand their trades. This scheme aims to
+          preserve traditional craftsmanship while promoting self-employment
+          opportunities.
+        </p>
+        
+        <div class="extra-content">
+          <h3 style="color: black; font-weight: bold;">Eligibility & Benefits:</h3>
+          <ul class="description">
+            <li>Applicants must be above 35 years of age.</li>
+            <li>Minimum 5 years of experience in one of the 25 listed trades.</li>
+            <li>If a subsidy above ₹1.5 lakh was received under any GoTN self-employment or business expansion scheme in the last 5 years, it must be repaid.</li>
+            <li>Maximum eligible subsidy: ₹50,000 (25% of the loan amount).</li>
+          </ul>
+        </div>
+        
+        <div class="arrow-button">
+          <div class="circle-wrapper">
+            <svg width="40" height="40" viewBox="0 0 65 65" fill="none" xmlns="http://www.w3.org/2000/svg" class="arrow-circle">
+              <circle cx="32.1404" cy="32.1404" r="31.6559" transform="rotate(3.973 32.1404 32.1404)" fill="white" stroke="#B58042" stroke-width="0.688172"></circle>
+            </svg>
+            <img src="../img/arrow1.png" alt="Arrow Icon" class="arrow-icon" />
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="kalaignar-container reverse section-white">
+      <div class="image-wrapper">
+        <img src="../img/dr.png" alt="Scheme Image" class="pottery-image" />
+      </div>
+      <article class="content-wrapper">
+        <span class="number-overlay">2</span>
+        <h1 class="title"><a href="https://msmeonline.tn.gov.in/aabcs/index.php" style="text-decoration: none; color: inherit;">Annal Ambedkar Business Champions Scheme</a></h1>
+        <hr class="divider" />
+        <p class="description">
+          AABCS is a financial support scheme exclusively for SC/ST entrepreneurs, providing capital subsidies and interest subvention to promote new and expanding enterprises.
+        </p>
+        <div class="extra-content">
+          <p style="color: black; ">Eligibility & Benefits:</p>
+          <ul class="description">
+            <li><span style="color: #B58042; font-weight: bold;">Age Limit:</span> Up to 55 years</li>
+            <li><span style="color: #B58042; font-weight: bold;">Education Qualification:</span> No educational qualification required</li>
+            <li><span style="color: #B58042; font-weight: bold;">Target Beneficiaries:</span> SC/ST entrepreneurs (100% ownership required)</li>
+            <li><span style="color: #B58042; font-weight: bold;">Business Coverage:</span> New enterprises and expansion of existing ones, including trading businesses above UYEGP thresholds</li>
+            <li><span style="color: #B58042; font-weight: bold;">Project Cost Includes:</span> Land, plant, machinery, testing equipment, computing devices (land cost capped at 20% of the total cost). Vehicles are eligible if integral to the business</li>
+            <li><span style="color: #B58042; font-weight: bold;">Capital Subsidy:</span> 35% of the eligible project cost (maximum ₹1.5 crore)</li>
+            <li><span style="color: #B58042; font-weight: bold;">Interest Subvention:</span>
+              <ul>
+                <li>6% subsidy for machinery & equipment loans (for up to 10 years)</li>
+                <li>Working capital loans eligible for interest subsidy for 2 years</li>
+              </ul>
+            </li>
+            <li><span style="color: #B58042; font-weight: bold;">Credit Linkage:</span> Covers projects with or without credit linkage. For non-credit linked projects, the subsidy is released at the end</li>
+            <li><span style="color: #B58042; font-weight: bold;">Additional Subsidy:</span> No restriction on availing subsidies from non-Government of Tamil Nadu schemes</li>
+            <li><span style="color: #B58042; font-weight: bold;">Application Mode:</span> Online through msmeonline.tn.gov.in/aabcs/</li>
+          </ul>
+        </div>
+        <div class="arrow-button">
+          <div class="circle-wrapper1">
+            <svg width="40" height="40" viewBox="0 0 65 65" fill="none" xmlns="http://www.w3.org/2000/svg" class="arrow-circle">
+              <circle cx="32.1404" cy="32.1404" r="31.6559" transform="rotate(-176.027 32.1404 32.1404)" fill="white" stroke="#B58042" stroke-width="0.688172"></circle>
+            </svg>
+            <img src="../img/arrow1.png" alt="Arrow Icon" class="arrow-icon" />
+          </div>
+        </div>
+      </article>
+    </section>  
+
+<section class="kalaignar-container">
+  <div class="image-wrapper">
+    <img src="../img/needs.jpg" alt="Scheme Image" class="pottery-image" />
+  </div>
+  <article class="content-wrapper">
+    <span class="number-overlay">3</span>
+    <h1 class="title"><a href="https://msmeonline.tn.gov.in/needs/index.php" style="text-decoration: none; color: inherit;">New Entrepreneur cum Enterprise Development Scheme (NEEDS)</a></h1>
+    <hr class="divider" />
+    <p class="description">
+      NEEDS is a government initiative aimed at supporting first-generation entrepreneurs by providing financial assistance, capital subsidies, and interest subvention to establish manufacturing and service-based enterprises.
+    </p>
+    <div class="extra-content">
+      <h3 style="color: black; font-weight: bold;">Eligibility & Benefits:</h3>
+      <ul class="description">
+        <li><span style="color: #B58042; font-weight: bold;">Age Limit:</span> 21-45 years (up to 55 years for Women/BC/MBC/SC/ST/Ex-Servicemen/Transgenders/Differently Abled)</li>
+        <li><span style="color: #B58042; font-weight: bold;">Educational Qualification:</span> Must have completed Higher Secondary (+2)/Degree/Diploma/ITI/Vocational Training</li>
+        <li><span style="color: #B58042; font-weight: bold;">Project Cost:</span> Ranges from ₹10 lakh to ₹5 crore for manufacturing or service enterprises</li>
+        <li><span style="color: #B58042; font-weight: bold;">Promoter's Contribution:</span> 10% for General & 5% for Special Category</li>
+        <li><span style="color: #B58042; font-weight: bold;">Loan Assistance:</span> Provided by TIIC/Commercial Banks/TAICO Banks</li>
+        <li><span style="color: #B58042; font-weight: bold;">Capital Subsidy:</span> 25% of the project cost (maximum ₹75 lakh)</li>
+        <li><span style="color: #B58042; font-weight: bold;">Interest Subvention:</span> 3% subsidy on interest throughout the entire repayment period</li>
+      </ul>
+    </div>
+    <div class="arrow-button">
+      <div class="circle-wrapper">
+        <svg width="40" height="40" viewBox="0 0 65 65" fill="none" xmlns="http://www.w3.org/2000/svg" class="arrow-circle">
+          <circle cx="32.1404" cy="32.1404" r="31.6559" transform="rotate(3.973 32.1404 32.1404)" fill="white" stroke="#B58042" stroke-width="0.688172"></circle>
+        </svg>
+        <img src="../img/arrow1.png" alt="Arrow Icon" class="arrow-icon" />
+      </div>
+    </div>
+  </article>
+</section>
+
+<section class="kalaignar-container reverse section-white">
+  <div class="image-wrapper">
+    <img src="../img/trade.jpg" alt="Scheme Image" class="pottery-image" />
+  </div>
+  <article class="content-wrapper">
+    <span class="number-overlay">4</span>
+    <h1 class="title"><a href="https://msmeonline.tn.gov.in/aabcs/index.php" style="text-decoration: none; color: inherit;">Unemployed Youth Employment Generation Programme (UYEGP)</a></h1>
+    <hr class="divider" />
+    <p class="description">
+      UYEGP is designed to support unemployed youth from economically weaker sections by providing financial assistance to start small businesses and trading enterprises. The scheme helps promote self-employment and economic empowerment.
+    </p>
+    <div class="extra-content">
+      <h3 style="color: black; font-weight: bold;">Eligibility & Benefits:</h3>
+      <ul class="description">
+        <li><span style="color: #B58042; font-weight: bold;">Age Limit:</span> 18-45 years (up to 55 years for Women/Minorities/BC/MBC/SC/ST/Ex-Servicemen/Transgenders/Differently Abled)</li>
+        <li><span style="color: #B58042; font-weight: bold;">Education Qualification:</span> Minimum 8th pass</li>
+        <li><span style="color: #B58042; font-weight: bold;">Family Income:</span> Should be below ₹8 lakh</li>
+        <li><span style="color: #B58042; font-weight: bold;">Project Cost:</span> Maximum ₹15 lakh for Trading/Business projects</li>
+        <li><span style="color: #B58042; font-weight: bold;">Promoter's Contribution:</span> 10% for General & 5% for Special Category</li>
+        <li><span style="color: #B58042; font-weight: bold;">Loan Assistance:</span> Provided by Commercial Banks</li>
+        <li><span style="color: #B58042; font-weight: bold;">Capital Subsidy:</span> 25% of the project cost (maximum ₹3.75 lakh)</li>
+      </ul>
+    </div>
+    <div class="arrow-button">
+      <div class="circle-wrapper1">
+        <svg width="40" height="40" viewBox="0 0 65 65" fill="none" xmlns="http://www.w3.org/2000/svg" class="arrow-circle">
+          <circle cx="32.1404" cy="32.1404" r="31.6559" transform="rotate(-176.027 32.1404 32.1404)" fill="white" stroke="#B58042" stroke-width="0.688172"></circle>
+        </svg>
+        <img src="../img/arrow1.png" alt="Arrow Icon" class="arrow-icon" />
+      </div>
+    </div>
+  </article>
+</section>
+
+<section class="kalaignar-container">
+  <div class="image-wrapper">
+    <img src="../img/pmegp.jpg" alt="Scheme Image" class="pottery-image" />
+  </div>
+  <article class="content-wrapper">
+    <span class="number-overlay">5</span>
+    <h1 class="title"><a href="https://msmeonline.tn.gov.in/aabcs/index.php" style="text-decoration: none; color: inherit;">Prime Minister's Employment Generation Programme (PMEGP)</a></h1>
+    <hr class="divider" />
+    <p class="description">
+      PMEGP is a central government scheme that provides financial support to new entrepreneurs for setting up micro-enterprises in the manufacturing, service, and business sectors to generate self-employment opportunities.
+    </p>
+    <div class="extra-content">
+      <h3 style="color: black; font-weight: bold;">Eligibility & Benefits:</h3>
+      <ul class="description">
+        <li><span style="color: #B58042; font-weight: bold;">Age Limit:</span> Minimum 18 years</li>
+        <li><span style="color: #B58042; font-weight: bold;">Educational Qualification:</span> Minimum 8th pass for projects above ₹10 lakh (manufacturing) & ₹5 lakh (service)</li>
+        <li><span style="color: #B58042; font-weight: bold;">Project Cost:</span>
+          <ul>
+            <li>Manufacturing: Up to ₹50 lakh</li>
+            <li>Service/Business: Up to ₹20 lakh</li>
+          </ul>
+        </li>
+        <li><span style="color: #B58042; font-weight: bold;">Promoter's Contribution:</span>
+          <ul>
+            <li>10% for General Category</li>
+            <li>5% for Special Category (SC/ST/OBC/Minorities/Women/Ex-Servicemen/Differently Abled)</li>
+          </ul>
+        </li>
+        <li><span style="color: #B58042; font-weight: bold;">Subsidy:</span>
+          <ul>
+            <li>Urban Areas: 15% (General) & 25% (Special Category)</li>
+            <li>Rural Areas: 25% (General) & 35% (Special Category)</li>
+          </ul>
+        </li>
+        <li><span style="color: #B58042; font-weight: bold;">Loan Assistance:</span> Provided by Commercial Banks, Cooperative Banks, Regional Rural Banks, and SIDBI</li>
+        <li><span style="color: #B58042; font-weight: bold;">Repayment Period:</span> 3 to 7 years after an initial moratorium</li>
+      </ul>
+    </div>
+    <div class="arrow-button">
+      <div class="circle-wrapper">
+        <svg width="40" height="40" viewBox="0 0 65 65" fill="none" xmlns="http://www.w3.org/2000/svg" class="arrow-circle">
+          <circle cx="32.1404" cy="32.1404" r="31.6559" transform="rotate(3.973 32.1404 32.1404)" fill="white" stroke="#B58042" stroke-width="0.688172"></circle>
+        </svg>
+        <img src="../img/arrow1.png" alt="Arrow Icon" class="arrow-icon" />
+      </div>
+    </div>
+  </article>
+</section>
+
+<section class="kalaignar-container reverse section-white">
+  <div class="image-wrapper">
+    <img src="../img/pm.png" alt="Scheme Image" class="pottery-image" />
+  </div>
+  <article class="content-wrapper">
+    <span class="number-overlay">6</span>
+    <h1 class="title"><a href="https://msmeonline.tn.gov.in/aabcs/index.php" style="text-decoration: none; color: inherit;">Prime Minister Formalisation of Micro Food Processing Enterprises Scheme (PMFME)</a></h1>
+    <hr class="divider" />
+    <p class="description">
+      PMEGP is a central government scheme that provides financial support to new entrepreneurs for setting up micro-enterprises in the manufacturing, service, and business sectors to generate self-employment opportunities.
+    </p>
+    <div class="extra-content">
+      <h3 style="color: black; font-weight: bold;">Eligibility & Benefits:</h3> 
+      <ul class="description">
+        <li><span style="color: #B58042; font-weight: bold;">Age Limit:</span> Anyone over the age of 18 can apply, there are no educational qualifications or income limits.</li>
+ 
+         
+      </ul>
+    </div>
+    <div class="arrow-button">
+      <div class="circle-wrapper1">
+        <svg width="40" height="40" viewBox="0 0 65 65" fill="none" xmlns="http://www.w3.org/2000/svg" class="arrow-circle">
+          <circle cx="32.1404" cy="32.1404" r="31.6559" transform="rotate(-176.027 32.1404 32.1404)" fill="white" stroke="#B58042" stroke-width="0.688172"></circle>
+        </svg>
+        <img src="../img/arrow1.png" alt="Arrow Icon" class="arrow-icon" />
+      </div>
+    </div>
+  </article>
+</section>
+
+    
+</div>
+  <!-- Footer -->
+  <footer class="py-4 mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-4 mb-md-0">
+          <div class="d-flex align-items-center mb-3">
+            <img src="../img/diclogo.jpg" alt="DIC Logo" style="width: 80px; height: 80px;" class="me-3">
+          </div>
+          <p class="text-white" style="font-size: 16px;">
+            District Industries Centre, Tenkasi supports local entrepreneurs by providing guidance and assistance for starting and growing businesses.
+          </p>
+        </div>
+        <div class="col-md-4 mb-4 mb-md-0">
+          <h5 class="text-white mb-3">Useful Links</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="../LandingPage/LandingPage.html" class="text-white text-decoration-none">Home</a></li>
+            <li class="mb-2"><a href="../About US/aboutus.html" class="text-white text-decoration-none">About Us</a></li>
+            <li class="mb-2"><a href="../Industrial Profile/Industrial.html" class="text-white text-decoration-none">Industrial Profile</a></li>
+            <li class="mb-2"><a href="../Incentive Page/Incentives.html" class="text-white text-decoration-none">Incentives</a></li>
+            <li class="mb-2"><a href="../Schemes/Schemes.html" class="text-white text-decoration-none">Schemes</a></li>
+            <li class="mb-2"><a href="../Contact Page/Contactus.html" class="text-white text-decoration-none">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 mb-4 mb-md-0">
+          <h5 class="text-white mb-3">Address</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2 text-white d-flex align-items-start">
+              <i class="fas fa-map-marker-alt text-white me-2 mt-1"></i>
+              <div>
+                <span>Tmt.P.MARIAMMAL , General Manager</span><br>
+                <span>District Industries Centre</span><br>
+                <span>5/5(2),5(3), Thirumalar Kovil Road</span><br>
+                <span>Kuthukkakvalasai, Thenkasi-627803</span>
+              </div>
+            </li>
+            <li class="mb-2 text-white d-flex align-items-center">
+              <i class="fas fa-phone-alt text-white me-2 mt-1"></i>
+              <a href="tel:04633-212347" class="text-white text-decoration-none">04633-212347</a>
+            </li>
+            <li class="mb-2 text-white d-flex align-items-start">
+              <i class="fas fa-clock text-white me-2 mt-1"></i>
+              <div>
+                <span>Working Hours:</span><br>
+                <span>Monday - Friday: 10.00 AM to 5.45 PM</span>
+              </div>
+            </li>
+          </ul>
+      </div>
+<div class="row mt-4">
+    <div class="col-12 text-center">
+      <p class="text-white mb-0" style="font-size: 14px;">Copyright © 2025 Tenaksi DIC Made with ❤ by <a href="https://www.brandmindz.com/" target="_blank" style="color: white; text-decoration: none;">Brand Mindz</a>. All rights reserved.</p>    </div>
+</div>
+
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Hover functionality for schemes dropdown with improved smoothness
+  document.querySelectorAll('.arrow-button').forEach((arrowBtn) => {
+    const extraContent = arrowBtn.parentElement.querySelector('.extra-content');
+    let hoverTimeout;
+    
+    // Create a hover area that includes both button and content
+    const contentWrapper = arrowBtn.parentElement;
+    
+    // Show content on mouseenter with slight delay for smoothness
+    const showContent = () => {
+      clearTimeout(hoverTimeout);
+      extraContent.classList.add('show');
+    };
+    
+    // Hide content with delay to prevent flickering
+    const hideContent = () => {
+      hoverTimeout = setTimeout(() => {
+        extraContent.classList.remove('show');
+      }, 100); // Small delay to prevent flickering
+    };
+    
+    // Arrow button events
+    arrowBtn.addEventListener('mouseenter', showContent);
+    arrowBtn.addEventListener('mouseleave', hideContent);
+    
+    // Extra content events to keep it visible when hovering over it
+    extraContent.addEventListener('mouseenter', () => {
+      clearTimeout(hoverTimeout);
+      extraContent.classList.add('show');
+    });
+    
+    extraContent.addEventListener('mouseleave', hideContent);
+    
+    // Prevent glitching by handling the gap between button and content
+    contentWrapper.addEventListener('mouseenter', (e) => {
+      if (e.target === contentWrapper) {
+        clearTimeout(hoverTimeout);
+      }
+    });
+  });
+  
+  // Fixed navbar on scroll
+  document.addEventListener('DOMContentLoaded', function() {
+    // Fixed navbar on scroll
+    window.addEventListener('scroll', function() {
+      const navbar = document.getElementById('mainNav');
+      const body = document.body;
+      const navbarContainer = navbar.parentElement;
+      
+      if (window.scrollY > 100) {
+        // When scrolled, make navbar fixed at top
+        navbar.classList.add('fixed-top');
+        navbar.classList.remove('position-relative');
+        body.classList.add('scrolled');
+        
+        // Remove the container's positioning to allow navbar to be full width
+        navbarContainer.classList.remove('position-absolute', 'top-0', 'start-50', 'translate-middle-x');
+        navbarContainer.style.width = '100%';
+        navbarContainer.style.maxWidth = '100%';
+        navbarContainer.style.padding = '0';
+      } else {
+        // Reset to original state when at top
+        navbar.classList.remove('fixed-top');
+        navbar.classList.add('position-relative');
+        body.classList.remove('scrolled');
+        
+        // Restore the container's positioning
+        navbarContainer.classList.add('position-absolute', 'top-0', 'start-50', 'translate-middle-x');
+        navbarContainer.style.width = '';
+        navbarContainer.style.maxWidth = '';
+        navbarContainer.style.padding = '';
+      }
+    });
+
+    // Get all navigation links
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    // Get the collapse element
+    const navbarCollapse = document.getElementById('navbarNav');
+    const bsCollapse = new bootstrap.Collapse(navbarCollapse, {toggle: false});
+
+    // Add click event listener to each navigation link
+    navLinks.forEach(function(navLink) {
+      navLink.addEventListener('click', function() {
+        // Close the navbar when a link is clicked
+        if (navbarCollapse.classList.contains('show')) {
+          bsCollapse.hide();
+        }
+      });
+    });
+
+    // Close navbar when clicking outside
+    document.addEventListener('click', function(event) {
+      // Check if the navbar is expanded and the click is outside the navbar
+      const isNavbarExpanded = navbarCollapse.classList.contains('show');
+      const isClickInsideNavbar = navbarCollapse.contains(event.target);
+      const isClickOnToggler = event.target.closest('.navbar-toggler');
+      
+      if (isNavbarExpanded && !isClickInsideNavbar && !isClickOnToggler) {
+        bsCollapse.hide();
+      }
+    });
+  });
+
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Government Schemes</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@600&display=swap" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            color: #af6f24 !important;
+        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Crimson Text', serif;
+      line-height: 1.5;
+      color: #333;
+      max-width: 100%;
+      overflow-x: hidden;
+      background-color: #ffffff;
+    }
+    
+    body.scrolled {
+      padding-top: 90px;
+    }
+    
+    /* Navbar Styles */
+    .navbar {
+      border-radius: 40px;
+      padding: 0.75rem 1.5rem;
+      background-color: white;
+      width: 100%;
+      max-width: 1320px;
+      margin: 0 auto;
+      transition: all 0.3s ease;
+    }
+    
+    .navbar.fixed-top {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1030;
+      max-width: 100%;
+      border-radius: 0;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-brand img {
+      width: 50px;
+      height: auto;
+    }
+
+    .nav-link {
+      position: relative;
+      font-weight: 600;
+      color: black !important;
+      margin: 0 10px;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link:hover {
+      opacity: 0.8;
+    }
+
+    .nav-link.active::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: black;
+    }
+    
+    /* Custom hamburger to X icon */
+    .navbar-toggler {
+      border: none;
+      background: transparent;
+      padding: 0;
+    }
+    
+    .navbar-toggler:focus {
+      box-shadow: none;
+    }
+    
+    .navbar-toggler .navbar-toggler-icon {
+      background-image: none;
+      position: relative;
+      height: 24px;
+      width: 30px;
+      transition: all 0.3s ease;
+    }
+    
+    .navbar-toggler .navbar-toggler-icon:before,
+    .navbar-toggler .navbar-toggler-icon:after,
+    .navbar-toggler .navbar-toggler-icon .middle-bar {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 3px;
+      background-color: #333;
+      border-radius: 2px;
+      left: 0;
+      transition: all 0.3s ease;
+    }
+    
+    .navbar-toggler .navbar-toggler-icon:before {
+      top: 0;
+    }
+    
+    .navbar-toggler .navbar-toggler-icon .middle-bar {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    
+    .navbar-toggler .navbar-toggler-icon:after {
+      bottom: 0;
+    }
+    
+    .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:before {
+      transform: rotate(45deg);
+      top: 11px;
+    }
+    
+    .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon .middle-bar {
+      opacity: 0;
+    }
+    
+    .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:after {
+      transform: rotate(-45deg);
+      bottom: 10px;
+    }
+    
+    /* Banner Styles */
+    .banner-container {
+      position: relative;
+      width: 100%;
+      height: 500px;
+      overflow: hidden;
+      margin-bottom: 30px;
+    }
+    
+    .banner-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .incentives-link {
+      position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-weight: 600;
+    color: #b1783b;
+    text-decoration: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+    
+    .incentives-link:hover {
+      background-color: #b1783b;
+      color: white;
+    }
+    
+    /* Main content styles */
+    .schemes-container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    .kalaignar-container {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding: 20px 10px;
+      margin-bottom: 30px;
+    }
+    
+    .image-wrapper {
+      flex: 0 0 auto;
+      width: 200px;
+    }
+    
+    .pottery-image {
+      width: 100%;
+      height: auto;
+      border-radius: 20px;
+      object-fit: cover;
+    }
+    
+    .content-wrapper {
+      background-color: #e1dad2;
+      flex: 1;
+      padding: 30px;
+      position: relative;
+      margin-top: 34px;
+      border-radius: 12px;
+    }
+    
+    .number-overlay {
+      font-family: "Crimson Text", serif;
+      font-size: 150px;
+      color: #b58042;
+      position: absolute;
+      top: -75px;
+      left: 8px;
+      opacity: 0.8;
+      line-height: 1;
+    }
+    
+    .title {
+      font-family: "Crimson Text", serif;
+      font-size: 24px;
+      color: #59544e;
+      margin-left: 50px;
+      margin-top: 10px;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .divider {
+      width: 100%;
+      height: 1px;
+      background-color: #c1bab2;
+      margin: 15px 0;
+      border: none;
+    }
+    
+    .description {
+      font-family: "Crimson Text", serif;
+      font-size: 16px;
+      color: #5b5b5b;
+      line-height: 1.5;
+      margin-top: 15px;
+    }
+    
+    .extra-content {
+      margin-top: 20px;
+    }
+    
+    .extra-content h3 {
+      color: #333;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    
+    .extra-content ul {
+      padding-left: 20px;
+      margin-bottom: 15px;
+    }
+    
+    .extra-content li {
+      margin-bottom: 8px;
+    }
+    
+    .arrow-button {
+      position: absolute;
+      bottom: 15px;
+      right: 15px;
+      cursor: pointer;
+      z-index: 5;
+    }
+    
+    .circle-wrapper {
+      position: relative;
+      margin-bottom: -9px;
+    }
+    .circle-wrapper1 {
+      position: relative;
+      margin-bottom: -39px;
+    }
+    
+    .arrow-circle {
+      width: 40px;
+      height: 40px;
+    }
+    
+    .arrow-icon {
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      transition: transform 0.3s ease;
+    }
+    
+    .arrow-icon.rotate {
+      transform: rotate(180deg);
+    }
+    
+    .hidden {
+      display: none;
+    }
+    
+    /* Reverse layout for section 2 */
+    .kalaignar-container.reverse {
+      flex-direction: row-reverse;
+    }
+    
+    /* Section 2 white background */
+    .section-white .content-wrapper {
+      background-color: #ffffff;
+    }
+    
+    /* Move number overlay to right side for reverse layout */
+    .kalaignar-container.reverse .number-overlay {
+      left: auto;
+      right: 20px;
+    }
+    
+    .kalaignar-container.reverse .title {
+      text-align: right;
+      margin-right: 50px;
+      margin-left: 0;
+    }
+    
+    .kalaignar-container.reverse .description {
+      text-align: left;
+    }
+    
+    /* Footer Styles */
+    footer {
+      background-color: #b1783b;
+      color: white;
+      padding: 20px 0;
+      margin-top: 50px;
+    }
+  
+    /* Tablet Styles (768px to 1024px) */
+    @media (max-width: 1024px) {
+      .schemes-container {
+        padding: 15px;
+      }
+      
+      .kalaignar-container {
+        padding: 15px 0;
+      }
+      
+      .image-wrapper {
+        width: 180px;
+      }
+      
+      .content-wrapper {
+        padding: 25px;
+      }
+      
+      .number-overlay {
+        font-size: 120px;
+        top: -60px;
+      }
+      
+      .title {
+        font-size: 22px;
+      }
+      
+      .description {
+        font-size: 15px;
+      }
+    }
+    
+    /* Mobile Styles (up to 767px) */
+    @media (max-width: 767px) {
+      .schemes-container {
+        padding: 10px;
+      }
+      
+      .kalaignar-container {
+        flex-direction: column;
+        padding: 10px 0;
+      }
+      
+      .kalaignar-container.reverse {
+        flex-direction: column;
+      }
+      
+      .image-wrapper {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+      }
+      
+      .content-wrapper {
+        margin-top: 20px;
+        padding: 20px;
+        width: 100%;
+      }
+      
+      .number-overlay {
+        font-size: 100px;
+        top: -50px;
+        left: 5px;
+      }
+      
+      .kalaignar-container.reverse .number-overlay {
+        right: 5px;
+        left: auto;
+      }
+      
+      .title {
+        font-size: 20px;
+        margin-left: 30px;
+        margin-top: 5px;
+      }
+      
+      .kalaignar-container.reverse .title {
+        text-align: right;
+        margin-right: 30px;
+        margin-left: 0;
+      }
+      
+      .description {
+        font-size: 14px;
+      }
+      
+      .extra-content h3 {
+        font-size: 16px;
+      }
+      
+      .extra-content li {
+        font-size: 14px;
+      }
+      
+      .arrow-button {
+        bottom: 10px;
+        right: 10px;
+      }
+      
+      .arrow-circle {
+        width: 35px;
+        height: 35px;
+      }
+      
+      .arrow-icon {
+        width: 18px;
+        height: 18px;
+        left: 8px;
+        top: 8px;
+      }
+      
+      .banner-container {
+        height: 300px;
+      }
+    }
+    
+    /* Small Mobile Styles (up to 480px) */
+    @media (max-width: 480px) {
+      .schemes-container {
+        padding: 8px;
+      }
+      
+      .kalaignar-container {
+        padding: 8px 0;
+      }
+      
+      .content-wrapper {
+        padding: 15px;
+        margin-top: 15px;
+      }
+      
+      .number-overlay {
+        font-size: 80px;
+        top: -40px;
+      }
+      
+      .title {
+        font-size: 18px;
+        margin-left: 20px;
+      }
+      
+      .kalaignar-container.reverse .title {
+        margin-right: 20px;
+      }
+      
+      .description {
+        font-size: 13px;
+      }
+      
+      .extra-content h3 {
+        font-size: 15px;
+      }
+      
+      .extra-content li {
+        font-size: 13px;
+      }
+      
+      .arrow-circle {
+        width: 30px;
+        height: 30px;
+      }
+      
+      .arrow-icon {
+        width: 16px;
+        height: 16px;
+        left: 7px;
+        top: 7px;
+      }
+      
+      .banner-container {
+        height: 200px;
+      }
+    }
+
+    @media (max-width: 767px) {
+    .incentives-link {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+}
+    @media (max-width: 575px) {
+    .incentives-link {
+        font-size: 0.8rem;
+        padding: 6px 10px;
+        bottom: 10px;
+        right: 10px;
+    }
+}
+
+
+  </style>
+</head>
+<body>
+  <!-- Banner Image Section with overlay navbar -->
+  <!-- <div class="position-relative">
+    <div class="container position-absolute top-0 start-50 translate-middle-x" style="z-index: 1030; padding-top: 15px; margin-top:16px;">
+      <nav class="navbar navbar-expand-lg shadow" id="mainNav">
+        <a class="navbar-brand" href="../LandingPage/LandingPage.html">
+          <img src="../img/diclogo.jpg" alt="Logo"  />
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon">
+            <span class="middle-bar"></span>
+          </span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="../LandingPage/LandingPage.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="../About US/aboutus.html">About Us</a></li>
+            <li class="nav-item"><a class="nav-link" href="../Industrial Profile/Industrial.html">Industrial Profile</a></li>
+            <li class="nav-item"><a class="nav-link" href="../Incentive Page/Incentives.html">Incentives</a></li>
+            <li class="nav-item"><a class="nav-link active" href="../Schemes/Schemes.html">Schemes</a></li>
+            <li class="nav-item"><a class="nav-link" href="../Contact Page/Contactus.html">Contact Us</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    
+    <div class="banner-container">
+      <img src="../img/INCENTIVE.png" alt="Schemes Banner" class="banner-image">
+      <a href="https://msmeonline.tn.gov.in" class="incentives-link">For all Loan and Incentives: msmeonline.tn.gov.in</a>
+    </div>
+  </div>
+
+  <div class="schemes-container">
+    <section class="kalaignar-container">
+      <div class="image-wrapper">
+        <img src="../img/KALAI.jpg" alt="Pottery Image" class="pottery-image" />
+      </div>
+      <article class="content-wrapper">
+        <span class="number-overlay">1</span>
+        <h1 class="title"><a href="https://msmeonline.tn.gov.in/kkt/index.php" style="text-decoration: none; color: inherit;">Kalaignar Kaivinai Thittam</a></h1>
+        <hr class="divider" />
+        <p class="description">
+          Kalaignar Kaivinai Thittam empowers skilled artisans by providing
+          financial support to sustain and expand their trades. This scheme aims to
+          preserve traditional craftsmanship while promoting self-employment
+          opportunities.
+        </p>
+        
+        <div class="extra-content hidden">
+          <h3 style="color: black; font-weight: bold;">Eligibility & Benefits:</h3>
+          <ul class="description">
+            <li>Applicants must be above 35 years of age.</li>
+            <li>Minimum 5 years of experience in one of the 25 listed trades.</li>
+            <li>If a subsidy above ₹1.5 lakh was received under any GoTN self-employment or business expansion scheme in the last 5 years, it must be repaid.</li>
+            <li>Maximum eligible subsidy: ₹50,000 (25% of the loan amount).</li>
+          </ul>
+        </div>
+        
+        <div class="arrow-button">
+          <div class="circle-wrapper">
+            <svg width="40" height="40" viewBox="0 0 65 65" fill="none" xmlns="http://www.w3.org/2000/svg" class="arrow-circle">
+              <circle cx="32.1404" cy="32.1404" r="31.6559" transform="rotate(3.973 32.1404 32.1404)" fill="white" stroke="#B58042" stroke-width="0.688172"></circle>
+            </svg>
+            <img src="../img/arrow1.png" alt="Arrow Icon" class="arrow-icon" />
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="kalaignar-container reverse section-white">
+      <div class="image-wrapper">
+        <img src="../img/dr.png" alt="Scheme Image" class="pottery-image" />
+      </div>
+      <article class="content-wrapper">
+        <span class="number-overlay">2</span>
+        <h1 class="title"><a href="https://msmeonline.tn.gov.in/aabcs/index.php" style="text-decoration: none; color: inherit;">Annal Ambedkar Business Champions Scheme</a></h1>
+        <hr class="divider" />
+        <p class="description">
+          AABCS is a financial support scheme exclusively for SC/ST entrepreneurs, providing capital subsidies and interest subvention to promote new and expanding enterprises.
+        </p>
+        <div class="extra-content hidden">
+          <p style="color: black; ">Eligibility & Benefits:</p>
+          <ul class="description">
+            <li><span style="color: #B58042; font-weight: bold;">Age Limit:</span> Up to 55 years</li>
+            <li><span style="color: #B58042; font-weight: bold;">Education Qualification:</span> No educational qualification required</li>
+            <li><span style="color: #B58042; font-weight: bold;">Target Beneficiaries:</span> SC/ST entrepreneurs (100% ownership required)</li>
+            <li><span style="color: #B58042; font-weight: bold;">Business Coverage:</span> New enterprises and expansion of existing ones, including trading businesses above UYEGP thresholds</li>
+            <li><span style="color: #B58042; font-weight: bold;">Project Cost Includes:</span> Land, plant, machinery, testing equipment, computing devices (land cost capped at 20% of the total cost). Vehicles are eligible if integral to the business</li>
+            <li><span style="color: #B58042; font-weight: bold;">Capital Subsidy:</span> 35% of the eligible project cost (maximum ₹1.5 crore)</li>
+            <li><span style="color: #B58042; font-weight: bold;">Interest Subvention:</span>
+              <ul>
+                <li>6% subsidy for machinery & equipment loans (for up to 10 years)</li>
+                <li>Working capital loans eligible for interest subsidy for 2 years</li>
+              </ul>
+            </li>
+            <li><span style="color: #B58042; font-weight: bold;">Credit Linkage:</span> Covers projects with or without credit linkage. For non-credit linked projects, the subsidy is released at the end</li>
+            <li><span style="color: #B58042; font-weight: bold;">Additional Subsidy:</span> No restriction on availing subsidies from non-Government of Tamil Nadu schemes</li>
+            <li><span style="color: #B58042; font-weight: bold;">Application Mode:</span> Online through msmeonline.tn.gov.in/aabcs/</li>
+          </ul>
+        </div>
+        <div class="arrow-button">
+          <div class="circle-wrapper1">
+            <svg width="40" height="40" viewBox="0 0 65 65" fill="none" xmlns="http://www.w3.org/2000/svg" class="arrow-circle">
+              <circle cx="32.1404" cy="32.1404" r="31.6559" transform="rotate(-176.027 32.1404 32.1404)" fill="white" stroke="#B58042" stroke-width="0.688172"></circle>
+            </svg>
+            <img src="../img/arrow1.png" alt="Arrow Icon" class="arrow-icon" />
+          </div>
+        </div>
+      </article>
+    </section>
+
+<section class="kalaignar-container">
+  <div class="image-wrapper">
+    <img src="../img/needs.jpg" alt="Scheme Image" class="pottery-image" />
+  </div>
+  <article class="content-wrapper">
+    <span class="number-overlay">3</span>
+    <h1 class="title"><a href="https://msmeonline.tn.gov.in/needs/index.php" style="text-decoration: none; color: inherit;">New Entrepreneur cum Enterprise Development Scheme (NEEDS)</a></h1>
+    <hr class="divider" />
+    <p class="description">
+      NEEDS is a government initiative aimed at supporting first-generation entrepreneurs by providing financial assistance, capital subsidies, and interest subvention to establish manufacturing and service-based enterprises.
+    </p>
+    <div class="extra-content hidden">
+      <h3 style="color: black; font-weight: bold;">Eligibility & Benefits:</h3>
+      <ul class="description">
+        <li><span style="color: #B58042; font-weight: bold;">Age Limit:</span> 21-45 years (up to 55 years for Women/BC/MBC/SC/ST/Ex-Servicemen/Transgenders/Differently Abled)</li>
+        <li><span style="color: #B58042; font-weight: bold;">Educational Qualification:</span> Must have completed Higher Secondary (+2)/Degree/Diploma/ITI/Vocational Training</li>
+        <li><span style="color: #B58042; font-weight: bold;">Project Cost:</span> Ranges from ₹10 lakh to ₹5 crore for manufacturing or service enterprises</li>
+        <li><span style="color: #B58042; font-weight: bold;">Promoter's Contribution:</span> 10% for General & 5% for Special Category</li>
+        <li><span style="color: #B58042; font-weight: bold;">Loan Assistance:</span> Provided by TIIC/Commercial Banks/TAICO Banks</li>
+        <li><span style="color: #B58042; font-weight: bold;">Capital Subsidy:</span> 25% of the project cost (maximum ₹75 lakh)</li>
+        <li><span style="color: #B58042; font-weight: bold;">Interest Subvention:</span> 3% subsidy on interest throughout the entire repayment period</li>
+      </ul>
+    </div>
+    <div class="arrow-button">
+      <div class="circle-wrapper">
+        <svg width="40" height="40" viewBox="0 0 65 65" fill="none" xmlns="http://www.w3.org/2000/svg" class="arrow-circle">
+          <circle cx="32.1404" cy="32.1404" r="31.6559" transform="rotate(3.973 32.1404 32.1404)" fill="white" stroke="#B58042" stroke-width="0.688172"></circle>
+        </svg>
+        <img src="../img/arrow1.png" alt="Arrow Icon" class="arrow-icon" />
+      </div>
+    </div>
+  </article>
+</section>
+
+<section class="kalaignar-container reverse section-white">
+  <div class="image-wrapper">
+    <img src="../img/trade.jpg" alt="Scheme Image" class="pottery-image" />
+  </div>
+  <article class="content-wrapper">
+    <span class="number-overlay">4</span>
+    <h1 class="title"><a href="https://msmeonline.tn.gov.in/aabcs/index.php" style="text-decoration: none; color: inherit;">Unemployed Youth Employment Generation Programme (UYEGP)</a></h1>
+    <hr class="divider" />
+    <p class="description">
+      UYEGP is designed to support unemployed youth from economically weaker sections by providing financial assistance to start small businesses and trading enterprises. The scheme helps promote self-employment and economic empowerment.
+    </p>
+    <div class="extra-content hidden">
+      <h3 style="color: black; font-weight: bold;">Eligibility & Benefits:</h3>
+      <ul class="description">
+        <li><span style="color: #B58042; font-weight: bold;">Age Limit:</span> 18-45 years (up to 55 years for Women/Minorities/BC/MBC/SC/ST/Ex-Servicemen/Transgenders/Differently Abled)</li>
+        <li><span style="color: #B58042; font-weight: bold;">Education Qualification:</span> Minimum 8th pass</li>
+        <li><span style="color: #B58042; font-weight: bold;">Family Income:</span> Should be below ₹8 lakh</li>
+        <li><span style="color: #B58042; font-weight: bold;">Project Cost:</span> Maximum ₹15 lakh for Trading/Business projects</li>
+        <li><span style="color: #B58042; font-weight: bold;">Promoter's Contribution:</span> 10% for General & 5% for Special Category</li>
+        <li><span style="color: #B58042; font-weight: bold;">Loan Assistance:</span> Provided by Commercial Banks</li>
+        <li><span style="color: #B58042; font-weight: bold;">Capital Subsidy:</span> 25% of the project cost (maximum ₹3.75 lakh)</li>
+      </ul>
+    </div>
+    <div class="arrow-button">
+      <div class="circle-wrapper1">
+        <svg width="40" height="40" viewBox="0 0 65 65" fill="none" xmlns="http://www.w3.org/2000/svg" class="arrow-circle">
+          <circle cx="32.1404" cy="32.1404" r="31.6559" transform="rotate(-176.027 32.1404 32.1404)" fill="white" stroke="#B58042" stroke-width="0.688172"></circle>
+        </svg>
+        <img src="../img/arrow1.png" alt="Arrow Icon" class="arrow-icon" />
+      </div>
+    </div>
+  </article>
+</section>
+
+<section class="kalaignar-container">
+  <div class="image-wrapper">
+    <img src="../img/pmegp.jpg" alt="Scheme Image" class="pottery-image" />
+  </div>
+  <article class="content-wrapper">
+    <span class="number-overlay">5</span>
+    <h1 class="title"><a href="https://msmeonline.tn.gov.in/aabcs/index.php" style="text-decoration: none; color: inherit;">Prime Minister's Employment Generation Programme (PMEGP)</a></h1>
+    <hr class="divider" />
+    <p class="description">
+      PMEGP is a central government scheme that provides financial support to new entrepreneurs for setting up micro-enterprises in the manufacturing, service, and business sectors to generate self-employment opportunities.
+    </p>
+    <div class="extra-content hidden">
+      <h3 style="color: black; font-weight: bold;">Eligibility & Benefits:</h3>
+      <ul class="description">
+        <li><span style="color: #B58042; font-weight: bold;">Age Limit:</span> Minimum 18 years</li>
+        <li><span style="color: #B58042; font-weight: bold;">Educational Qualification:</span> Minimum 8th pass for projects above ₹10 lakh (manufacturing) & ₹5 lakh (service)</li>
+        <li><span style="color: #B58042; font-weight: bold;">Project Cost:</span>
+          <ul>
+            <li>Manufacturing: Up to ₹50 lakh</li>
+            <li>Service/Business: Up to ₹20 lakh</li>
+          </ul>
+        </li>
+        <li><span style="color: #B58042; font-weight: bold;">Promoter's Contribution:</span>
+          <ul>
+            <li>10% for General Category</li>
+            <li>5% for Special Category (SC/ST/OBC/Minorities/Women/Ex-Servicemen/Differently Abled)</li>
+          </ul>
+        </li>
+        <li><span style="color: #B58042; font-weight: bold;">Subsidy:</span>
+          <ul>
+            <li>Urban Areas: 15% (General) & 25% (Special Category)</li>
+            <li>Rural Areas: 25% (General) & 35% (Special Category)</li>
+          </ul>
+        </li>
+        <li><span style="color: #B58042; font-weight: bold;">Loan Assistance:</span> Provided by Commercial Banks, Cooperative Banks, Regional Rural Banks, and SIDBI</li>
+        <li><span style="color: #B58042; font-weight: bold;">Repayment Period:</span> 3 to 7 years after an initial moratorium</li>
+      </ul>
+    </div>
+    <div class="arrow-button">
+      <div class="circle-wrapper">
+        <svg width="40" height="40" viewBox="0 0 65 65" fill="none" xmlns="http://www.w3.org/2000/svg" class="arrow-circle">
+          <circle cx="32.1404" cy="32.1404" r="31.6559" transform="rotate(3.973 32.1404 32.1404)" fill="white" stroke="#B58042" stroke-width="0.688172"></circle>
+        </svg>
+        <img src="../img/arrow1.png" alt="Arrow Icon" class="arrow-icon" />
+      </div>
+    </div>
+  </article>
+</section>
+
+<section class="kalaignar-container reverse section-white">
+  <div class="image-wrapper">
+    <img src="../img/pm.png" alt="Scheme Image" class="pottery-image" />
+  </div>
+  <article class="content-wrapper">
+    <span class="number-overlay">6</span>
+    <h1 class="title"><a href="https://msmeonline.tn.gov.in/aabcs/index.php" style="text-decoration: none; color: inherit;">Prime Minister Formalisation of Micro Food Processing Enterprises Scheme (PMFME)</a></h1>
+    <hr class="divider" />
+    <p class="description">
+      PMEGP is a central government scheme that provides financial support to new entrepreneurs for setting up micro-enterprises in the manufacturing, service, and business sectors to generate self-employment opportunities.
+    </p>
+    <div class="extra-content hidden">
+      <h3 style="color: black; font-weight: bold;">Eligibility & Benefits:</h3>
+      <ul class="description">
+        <li><span style="color: #B58042; font-weight: bold;">Age Limit:</span> Minimum 18 years</li>
+        <li><span style="color: #B58042; font-weight: bold;">Educational Qualification:</span> Minimum 8th pass for projects above ₹10 lakh (manufacturing) & ₹5 lakh (service)</li>
+        <li><span style="color: #B58042; font-weight: bold;">Project Cost:</span>
+          <ul>
+            <li>Manufacturing: Up to ₹50 lakh</li>
+            <li>Service/Business: Up to ₹20 lakh</li>
+          </ul>
+        </li>
+        <li><span style="color: #B58042; font-weight: bold;">Promoter's Contribution:</span>
+          <ul>
+            <li>10% for General Category</li>
+            <li>5% for Special Category (SC/ST/OBC/Minorities/Women/Ex-Servicemen/Differently Abled)</li>
+          </ul>
+        </li>
+        <li><span style="color: #B58042; font-weight: bold;">Subsidy:</span>
+          <ul>
+            <li>Urban Areas: 15% (General) & 25% (Special Category)</li>
+            <li>Rural Areas: 25% (General) & 35% (Special Category)</li>
+          </ul>
+        </li>
+        <li><span style="color: #B58042; font-weight: bold;">Loan Assistance:</span> Provided by Commercial Banks, Cooperative Banks, Regional Rural Banks, and SIDBI</li>
+        <li><span style="color: #B58042; font-weight: bold;">Repayment Period:</span> 3 to 7 years after an initial moratorium</li>
+      </ul>
+    </div>
+    <div class="arrow-button">
+      <div class="circle-wrapper1">
+        <svg width="40" height="40" viewBox="0 0 65 65" fill="none" xmlns="http://www.w3.org/2000/svg" class="arrow-circle">
+          <circle cx="32.1404" cy="32.1404" r="31.6559" transform="rotate(-176.027 32.1404 32.1404)" fill="white" stroke="#B58042" stroke-width="0.688172"></circle>
+        </svg>
+        <img src="../img/arrow1.png" alt="Arrow Icon" class="arrow-icon" />
+      </div>
+    </div>
+  </article>
+</section>
+</div>
+
+
+  <!-- Footer -->
+  <!-- <footer class="py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-4 mb-md-0">
+          <div class="d-flex align-items-center mb-3">
+            <img src="../img/diclogo.jpg" alt="DIC Logo" class="me-3">
+          </div>
+          <p class="text-white" style="font-size: 16px;">
+            District Industries Centre, Tenkasi supports local entrepreneurs by providing guidance and assistance for starting and growing businesses.
+          </p>
+        </div>
+        <div class="col-md-4 mb-4 mb-md-0">
+          <h5 class="text-white mb-3">Useful Links</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="../LandingPage/LandingPage.html" class="text-white text-decoration-none">Home</a></li>
+                        <li class="mb-2"><a href="../About US/aboutus.html" class="text-white text-decoration-none">About Us</a></li>
+                        <li class="mb-2"><a href="../Industrial Profile/Industrial.html" class="text-white text-decoration-none">Industrial Profile</a></li>
+                        <li class="mb-2"><a href="../Incentive Page/Incentives.html" class="text-white text-decoration-none">Incentives</a></li>
+                        <li class="mb-2"><a href="../Schemes/Schemes.html" class="text-white text-decoration-none">Schemes</a></li>
+                        <li class="mb-2"><a href="../Contact Page/Contactus.html" class="text-white text-decoration-none">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h5 class="text-white mb-3">Social Media Links</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="#" class="text-white text-decoration-none"><i class="fab fa-facebook me-2"></i>Facebook</a></li>
+            <li class="mb-2"><a href="#" class="text-white text-decoration-none"><i class="fab fa-youtube me-2"></i>Youtube</a></li>
+            <li class="mb-2"><a href="#" class="text-white text-decoration-none"><i class="fab fa-instagram me-2"></i>Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col-12 text-center">
+          <p class="text-white mb-0" style="font-size: 14px;">Copyright © 2025 Tenaksi DIC Made with ❤ by <a href="https://www.brandmindz.com/" target="_blank" style="color: white; text-decoration: none;">Brand Mindz</a>. All rights reserved.</p>        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Toggle extra content for schemes
+    document.querySelectorAll('.arrow-button').forEach((arrowBtn) => {
+      arrowBtn.addEventListener('click', () => {
+        const extraContent = arrowBtn.parentElement.querySelector('.extra-content');
+        const arrowIcon = arrowBtn.querySelector('.arrow-icon');
+        extraContent.classList.toggle('hidden');
+        arrowIcon.classList.toggle('rotate');
+      });
+    });
+    
+    // Fixed navbar on scroll
+    document.addEventListener('DOMContentLoaded', function() {
+      // Fixed navbar on scroll
+      window.addEventListener('scroll', function() {
+        const navbar = document.getElementById('mainNav');
+        const body = document.body;
+        const navbarContainer = navbar.parentElement;
+        
+        if (window.scrollY > 100) {
+          // When scrolled, make navbar fixed at top
+          navbar.classList.add('fixed-top');
+          navbar.classList.remove('position-relative');
+          body.classList.add('scrolled');
+          
+          // Remove the container's positioning to allow navbar to be full width
+          navbarContainer.classList.remove('position-absolute', 'top-0', 'start-50', 'translate-middle-x');
+          navbarContainer.style.width = '100%';
+          navbarContainer.style.maxWidth = '100%';
+          navbarContainer.style.padding = '0';
+        } else {
+          // Reset to original state when at top
+          navbar.classList.remove('fixed-top');
+          navbar.classList.add('position-relative');
+          body.classList.remove('scrolled');
+          
+          // Restore the container's positioning
+          navbarContainer.classList.add('position-absolute', 'top-0', 'start-50', 'translate-middle-x');
+          navbarContainer.style.width = '';
+          navbarContainer.style.maxWidth = '';
+          navbarContainer.style.padding = '';
+        }
+      });
+
+      // Get all navigation links
+      const navLinks = document.querySelectorAll('.nav-link');
+
+      // Get the collapse element
+      const navbarCollapse = document.getElementById('navbarNav');
+      const bsCollapse = new bootstrap.Collapse(navbarCollapse, {toggle: false});
+
+      // Add click event listener to each navigation link
+      navLinks.forEach(function(navLink) {
+        navLink.addEventListener('click', function() {
+          // Close the navbar when a link is clicked
+          if (navbarCollapse.classList.contains('show')) {
+            bsCollapse.hide();
+          }
+        });
+      });
+
+      // Close navbar when clicking outside
+      document.addEventListener('click', function(event) {
+        // Check if the navbar is expanded and the click is outside the navbar
+        const isNavbarExpanded = navbarCollapse.classList.contains('show');
+        const isClickInsideNavbar = navbarCollapse.contains(event.target);
+        const isClickOnToggler = event.target.closest('.navbar-toggler');
+        
+        if (isNavbarExpanded && !isClickInsideNavbar && !isClickOnToggler) {
+          bsCollapse.hide();
+        }
+      });
+    });
+  </script>
+</body> -->
+<!-- </html> --> --> -->
